@@ -1,0 +1,51 @@
+/*[ FONT SIZE ]
+///////////////////////////////////////////////////////////
+*/
+.fs-200 {font-size: 200px;}
+
+/*[ PADDING ]
+///////////////////////////////////////////////////////////
+*/
+.p-t-115 {padding-top: 115px;}
+.p-b-25 {padding-bottom: 25px;}
+.p-b-26 {padding-bottom: 26px;}
+.p-b-225 {padding-bottom: 225px;}
+
+/*[ MARGIN ]
+///////////////////////////////////////////////////////////
+*/
+.m-r-250 {margin-right: 250px;}
+.m-l-r-auto {margin-left: auto;	margin-right: auto;}
+.m-l-auto {margin-left: auto;}
+.m-r-auto {margin-right: auto;}
+
+
+
+/*[ TEXT ]
+///////////////////////////////////////////////////////////
+*/
+/* ------------------------------------ */
+.text-white {color: white;}
+.text-black {color: black;}
+
+.text-hov-white:hover {color: white;}
+
+/* ------------------------------------ */
+.text-up {text-transform: uppercase;}
+
+/* ------------------------------------ */
+.text-center {text-align: center;}
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+.text-middle {vertical-align: middle;}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+.testimonials {
+	@extend %section-padding;
+	background: url('../img/about2.jpg') no-repeat scroll center center / cover $main-light-color;
+
+	&-container {
+		max-width: 700px;
+		margin: 40px auto 0;
+		overflow: visible;
+		background: $main-light-color;
+		padding: $padding-base $padding-large;
+		border-top: 1px solid $main-light-gray;
+	}
+	&-slider {
+		width: 100%;
+		float: left;
+		overflow: hidden;
+
+		@include smartphone {
+			padding: 0 $padding-base;
+		}
+		img {
+			border-radius: 100px;
+			margin-top: -55px;
+			width: 80px;
+			height: 80px;
+			background: white;
+			border: 1px solid $main-light-gray;
+		}
+		p {
+			font-size: 18px;
+			color: $main-gray;
+			line-height: 26px;
+		}
+		h3 {
+			span {
+				display: block;
+				color: $main-gray;
+				font-size: 50%;
+				text-transform: uppercase;
+				margin: $margin-base 0;
+			}
+		}
+	}
+	.swiper-slide {
+		transition: all 300ms ease-in-out
+	}
+	.swiper-slide-next, .swiper-slide-prev {
+		@include medium-tablet {
+			visibility: hidden;
+		}
+	}
+}

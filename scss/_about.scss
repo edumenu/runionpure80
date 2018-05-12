@@ -1,0 +1,42 @@
+.about {
+	@extend %section-padding;
+	background: url('../img/about2.jpg') no-repeat scroll center center / cover $main-light-color;
+
+	&-counter {
+		@include desktop {
+			padding: $padding-large 0;
+		}
+		@include tablet {
+			padding: $padding-large 0;
+		}
+		@include medium-tablet {
+			padding: 0;
+		}
+		.icon {
+			font-size: 40px;
+			color: $main-theme-color;
+		}
+		&-single {
+			border-right: 1px solid rgba($main-gray, 0.5);
+
+			@include medium-tablet {
+				border-right: none;
+				border-bottom: 1px solid rgba($main-gray, 0.5);
+				margin-bottom: $margin-base;
+			}
+			@include smartphone {
+				border-right: none;
+				border-bottom: 1px solid rgba($main-gray, 0.5);
+				margin-bottom: $margin-base;
+			}
+		}
+		.counter {
+			@include medium-tablet {
+				padding: $padding-medium 0;
+			}
+			@include smartphone {
+				padding: $padding-medium 0;
+			}
+		}
+	}
+}

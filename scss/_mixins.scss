@@ -1,0 +1,49 @@
+$smartphone-width: $screen-xs;
+$tablet-width: $screen-sm;
+$desktop-width: $screen-lg;
+$medium-tablet: $screen-md;
+
+@mixin smartphone {
+	@media (max-width: #{$smartphone-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: #{$smartphone-width}) and (max-width: #{$desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin medium-tablet {
+	@media (min-width: #{$smartphone-width}) and (max-width: #{$medium-tablet - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet-up {
+	@media (min-width: #{$smartphone-width}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$desktop-width}) {
+		@content;
+	}
+}
+
+
+@mixin ie {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		/* IE10+ CSS styles go here */
+		@content;
+	}
+}
+
+@mixin bootstrap-btn-state {
+	&:hover, &:focus, &.active.focus, &.active:focus, &.active:hover, &.focus:active, 
+	&:active:focus, &:active:hover {
+		@content;
+	}
+}

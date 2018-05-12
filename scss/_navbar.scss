@@ -1,0 +1,189 @@
+.navbar {
+	border: none;
+	background: $main-light-color;
+	//z-index: 1000;
+	text-align: center;
+
+	a {
+		padding: $padding-base;
+		color: $main-light-color;
+		font-family: $main-font;
+		font-weight: 400;
+	}
+	&-brand {
+		color: $main-light-color;
+		font-family: $main-font;
+
+		span {
+			color: $main-theme-color;
+		}
+		img {
+			height: 15px;
+			margin-left: $margin-base;
+			margin-top: $margin-medium / 10;
+			width: auto;
+			transition: all 300ms ease-in-out;
+
+			@include smartphone {
+				margin-top: 0;
+				height: 20px;
+			}
+			@include tablet {
+				margin-top: 0;
+				height: 20px;
+			}
+		}
+	}
+	.navbar-collapse {
+		max-height: none !important;
+	}
+	.navbar-toggle .icon-bar {
+		background: $main-theme-color;
+	}
+	&-nav {
+		float: none;
+		margin-top: 0;
+
+		@include tablet {
+			margin-bottom: 0;
+		}
+		@include smartphone {
+			margin-bottom: 0;
+		}
+		.dropdown-menu > li {
+			width: 100%;
+		}
+		.dropdown-menu > li > a {
+			padding: $padding-base !important;
+			width: 100%;
+		}
+		li {
+			float: none;
+			display: inline-block;
+
+			@include smartphone {
+				width: 100%;
+			}
+			@include tablet {
+				width: 100%;
+			}
+			&:first-child a {
+				@include tablet {
+					border-top: 1px solid $main-light-gray;
+				}
+				@include smartphone {
+					border-top: 1px solid $main-light-gray;
+				}
+			}
+			&:last-child a {
+				@include tablet {
+					border-bottom: none;
+				}
+				@include smartphone {
+					border-bottom: none;
+				}
+			}
+		}
+		li > a {
+			padding: $padding-base;
+			color: $main-dark-color;
+			position: relative;
+			transition: all 300ms ease-in-out;
+			font-weight: 700;
+			font-size: 12px;
+			text-transform: uppercase;
+
+			@include tablet {
+				padding: $padding-base;
+				text-align: center;
+				border-bottom: 1px solid $main-light-gray;
+			}
+			@include smartphone {
+				padding: $padding-base;
+				text-align: center;
+				border-bottom: 1px solid $main-light-gray;
+			}
+			&:before {
+				transition: all 300ms ease-in-out;
+				content: '';
+				height: 4px;
+				background: $transparent;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				opacity: 0;
+
+				@include tablet {
+					display: none;
+				}
+				@include smartphone {
+					display: none;
+				}
+			}
+			&:after {
+				transition: all 300ms ease-in-out;
+				content: '';
+				height: 4px;
+				background: $transparent;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				opacity: 0;
+
+				@include tablet {
+					display: none;
+				}
+				@include smartphone {
+					display: none;
+				}
+			}
+		}
+		& > .active > a, & > .active > a:hover, & > .active > a:focus {
+			opacity: 1;
+			background-color: none;
+
+			&:after {
+				transition: all 300ms ease-in-out;
+				background: $main-theme-color;
+				opacity: 1;
+			}
+		}
+	}
+	&-inverse {
+		border: none;
+
+		.navbar-nav {
+			& > .active > a, & > .active > a:hover, & > .active > a:focus {
+				background: $main-theme-color;
+				opacity: 1;
+				color: white;
+			}
+		}
+	}
+	&-fixed-top {
+		// to prevent scroll issue on mobile devices, when top is fixed to top
+		@include smartphone {
+			position: absolute;
+			max-height: auto;
+		}
+		@include tablet {
+			position: absolute;
+			max-height: auto;
+		}
+	}
+}
+.nav > li > a:hover, .nav > li > a:focus {
+	background-color: $transparent;
+	text-decoration: none;
+}
+.nav > li > a:hover {
+	color: $main-gray;
+
+	&:before {
+		transition: all 300ms ease-in-out;
+		background: $main-gray;
+		opacity: 1;
+	}
+}

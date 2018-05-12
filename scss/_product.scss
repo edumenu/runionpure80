@@ -1,0 +1,210 @@
+.product {
+	@extend %section-padding;
+
+	h3 {
+		margin: $margin-medium * 1.5 0;
+	}
+	&-list {
+		padding: 0;
+		width: 100%;
+		float: left;
+		margin-bottom: $margin-medium;
+
+		&-price {
+			font-weight: 700;
+		}
+		&-slider {
+			padding: 0 $padding-base;
+		}
+		li {
+			margin-bottom: $margin-base;
+			position: relative;
+			padding: $padding-medium 0;
+			overflow: hidden;
+
+			span {
+				display: block;
+			}
+			a img, img {
+				margin-right: 0;
+				width: 100%;
+			}
+		}
+		&-left {
+			a {
+				display: block;
+			}
+		}
+		&-special-price {
+			border-radius: 100px;
+			color: $main-light-color;
+			font-size: 12px;
+			left: 0;
+			padding: 0 5px;
+			position: absolute;
+			top: 0;
+		}
+		&-vertical {
+			li {
+				padding: $padding-base;
+
+				@include smartphone {
+					width: 100%;
+				}
+				a {
+					position: relative;
+
+					img {
+						width: 100%;
+						margin: 0;
+						transition: all 500ms ease-in-out;
+
+						&.product-list-primary-img {
+							opacity: 1;
+						}
+						&.product-list-secondary-img {
+							opacity: 0;
+							position: absolute;
+							left: 0;
+							right: 0;
+							top: 0;
+							bottom: 0;
+						}
+					}
+					&:hover {
+						img {
+							&.product-list-primary-img {
+								opacity: 0;
+							}
+							&.product-list-secondary-img {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+		&-vertical {
+			& .product-list-right {
+				width: 100%;
+				text-align: center;
+			}
+			.btn {
+				width: auto;
+				margin: $margin-base auto 0 auto;
+				float: none;
+				display: inline-block;
+			}
+		}
+		&-right {
+			padding: $padding-base 0;
+		}
+		&-no-margin {
+			margin-bottom: 0;
+		}
+	}
+	.left-arrow, .right-arrow, .left-arrow-negative, .right-arrow-negative {
+		top: 33%;
+		color: $main-gray;
+	}
+	.left-arrow {
+		left: 15px;
+	}
+	.right-arrow {
+		right: 15px;
+	}
+	.swiper-slide img {
+		width: 100%;
+	}
+	.product-slider {
+		overflow: hidden;
+		width: 100%;
+	}
+	//product modal
+	&-modal {
+		.modal-dialog {
+			margin: 0;
+			width: 100%;
+			padding: 0;
+		}
+		.modal-content {
+			margin: 0;
+			padding: 0;
+			min-height: 100vh;
+			width: 100%;
+		}
+		.modal-body {
+			float: left;
+			width: 100%;
+		}
+	}
+	&-right-section {
+		margin-top: 32px;
+		display: block;
+		text-align: right;
+		float: left;
+
+		@include medium-tablet {
+			width: 100%;
+			text-align: center;
+		}
+		@include smartphone {
+			width: 100%;
+			text-align: center;
+		}
+		> span {
+			margin-top: $margin-base / 15;
+			margin-right: $margin-base;
+			margin-bottom: $margin-base;
+			display: inline-block;
+
+			&.btn {
+				margin-top: 12px;
+			}
+			@include medium-tablet {
+				width: 100%;
+				text-align: center;
+			}
+			@include smartphone {
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+
+	/* Indicators list style */
+	&-slide .carousel-indicators li {
+		border: medium none;
+		border-radius: 0;
+		float: none;
+		height: auto;
+		margin-bottom: 5px;
+		margin-left: 0;
+		margin-right: 5px !important;
+		margin-top: 0;
+		width: 70px;
+	}
+
+	/* Indicators images style */
+	&-slide .carousel-indicators img {
+		border: 2px solid $main-light-color;
+		float: left;
+		height: auto;
+		left: 0;
+		width: 70px;
+		transition: all 300ms ease-in-out
+	}
+
+	/* Indicators active image style */
+	&-slide .carousel-indicators .active img {
+		border: 2px solid $main-theme-color;
+		opacity: 1;
+	}
+	&-description {
+		margin-bottom: $margin-base * 3;
+		float: left;
+	}
+	&-tabs {
+		margin-top: $margin-large;
+	}
+}

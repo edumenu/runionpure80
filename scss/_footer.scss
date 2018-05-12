@@ -1,0 +1,17 @@
+.footer {
+	@extend %section-padding;
+	height: auto;
+	min-height: auto;
+	float: left;
+	width: 100%;
+	padding-bottom: $padding-x-large;
+
+	&-logo {
+		margin: $margin-medium 0;
+		width: 220px;
+		height: auto;
+	}
+	&-newsletter {
+		margin-top: $margin-large;
+	}
+}
