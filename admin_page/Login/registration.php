@@ -1,7 +1,4 @@
- <?php ob_start(); ?>
-<!-- This function creates a new session or resumes a current one based on a session identifier passed via GET or POST -->
-<?php session_start();?>
-
+<?php include "header.php"?>
 <?php include "includes/db.php";?>
 <?php include "functions.php";?>
  
@@ -30,22 +27,6 @@ if(username_exists($username) == false){
 }
 
  ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-		<!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!--===============================================================================================-->
-</head>
-<body>
 	
 	<div class="limiter">
 		<div class="container-login100">
