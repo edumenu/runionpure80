@@ -139,7 +139,7 @@
       $test_date = $row['test_date'];
       $test_title = $row['test_title'];
     }    
-    
+    //Changing the date format
     $newDate2 = date("m-d-Y", strtotime($test_date));
 
 ?>	
