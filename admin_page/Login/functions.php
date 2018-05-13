@@ -75,7 +75,7 @@ function confirmQuery($result) {
         $db_user_role = $row['user_role'];   
         }
 
-        if(password_verify($password,$db_user_password)) {
+        if(password_verify($password,$db_user_password) && $db_user_role == 'admin' ) {
 //            echo "Password is correct!";
 
     //    Setting a session
@@ -126,7 +126,7 @@ function register_user($username, $email, $password, $firstname, $lastname){
     $password = password_hash( $password, PASSWORD_BCRYPT, array('cost' => 12));
 
     $query = "INSERT INTO users (username, firstname, lastname, email, password, user_role) ";
-    $query .= "VALUES('{$username}','{$firstname}','{$lastname}','{$email}','{$password}','admin')";
+    $query .= "VALUES('{$username}','{$firstname}','{$lastname}','{$email}','{$password}','subscriber')";
     //$register_user_query = mysqli_query($connection, $query);
     $result = $connection->query($query);
 

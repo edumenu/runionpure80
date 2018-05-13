@@ -7,8 +7,8 @@ Tip 1: You can change the color of the sidebar using: data-color="purple | azure
 Tip 2: you can also add an image using data-image tag
 -->
     <div class="logo">
-        <a href="#" class="simple-text logo-normal">
-            runionpure80
+        <a href="../../../index.php" class="simple-text logo-normal">
+            runionpure-80.com
         </a>
     </div>
     <div class="sidebar-wrapper">

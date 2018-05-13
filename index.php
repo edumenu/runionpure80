@@ -1,4 +1,6 @@
 <?php session_start(); ?>
+<?php include "admin_page/Login/includes/db.php"?>
+<?php include "admin_page/Login/functions.php"?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -33,6 +35,7 @@
 					<li><a href="#testimonials">testimonials</a></li>
 					<li><a href="#contact">contact</a></li>
 					<li><a href="shop.php">Shop</a></li>
+					<li><a href="admin_page/Login/index.php">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -74,8 +77,24 @@
 	
 	
 	
-	
-	
+<?php
+    
+    //Obtaining the about content already in the database
+    $query = "SELECT * FROM about";
+    $result = $connection->query($query);
+    confirmQuery($result);  
+
+    while($row = mysqli_fetch_assoc($result)) {
+      //Storing the about content into a variable 
+      $about_content = $row['about_content'];
+      $about_date = $row['about_date'];
+    }    
+    
+    $newDate = date("m-d-Y", strtotime($about_date));
+
+?>	
+
+		
 <!--About us-->
 	<section class="about white-color" id="about">
 		<div class="container">
@@ -84,9 +103,11 @@
 					<h3 class="section-heading">About us</h3>
 				</div>
 				<div class="col-md-7 overflow-hidden wow fadeInLeft">
-					<h4>Best furniture ever!</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<!-- Displaying the about me content -->
+					<p><?php echo $about_content ?></p>
+					<h5 style="font-size: 0.7em">Last update: <bold><?php echo $newDate?></bold></h5>
 				</div>
+<!--
 				<div class="col-md-4 col-md-push-1 wow fadeInRight">
 					<h4>Our mission</h4>
 					<ul class="styled-list">
@@ -96,6 +117,7 @@
 						<li>4. Nostrud exercitation</li>
 					</ul>
 				</div>
+-->
 			</div>
 		</div>
 	</section>
@@ -103,6 +125,25 @@
 	
 	
 	
+	
+<?php
+    
+    //Obtaining the about content already in the database
+    $query = "SELECT * FROM testimonial";
+    $result = $connection->query($query);
+    confirmQuery($result);  
+
+    while($row = mysqli_fetch_assoc($result)) {
+      //Storing the about content into a variable 
+      $test_content = $row['test_content'];
+      $test_date = $row['test_date'];
+      $test_title = $row['test_title'];
+    }    
+    
+    $newDate2 = date("m-d-Y", strtotime($test_date));
+
+?>	
+		
 <!--Testimonial-->
 	<section class="testimonials" id="testimonials">
 		<div class="container">
@@ -114,17 +155,20 @@
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<div class="testimonials-container shadow"> <img alt="user avatar" class="wow fadeInUp" src="img/user1.png">
-								<h3 class="wow fadeInUp" data-wow-delay=".4s"> Martin Johe, Co-Founder / CEO <span>Fastcompany ltd.</span> </h3>
-								<p class="wow fadeInUp" data-wow-delay=".6s"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+								<h3 class="wow fadeInUp" data-wow-delay=".4s"><?php echo $test_title?> </h3>
+								<p class="wow fadeInUp" data-wow-delay=".6s"> <?php echo $test_content?> </p>
+								<h5 style="font-size: 0.7em; text-align: right;">Last update: <bold><?php echo $newDate2?></bold></h5>
 							</div>
 						</div>
 
+<!--
 						<div class="swiper-slide">
 							<div class="testimonials-container shadow"> <img alt="user avatar" class="wow fadeInUp" src="img/user.png">
 								<h3 class="wow fadeInUp" data-wow-delay=".4s"> Martin Johe, Co-Founder / CEO <span>Fastcompany ltd.</span> </h3>
 								<p class="wow fadeInUp" data-wow-delay=".6s"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
 							</div>
 						</div>
+-->
 					</div>
 					<div class="testimonials-pagination"></div>
 					<div class="testimonials-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>

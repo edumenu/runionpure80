@@ -57,6 +57,9 @@
 						<a href="registration.php" class="btn btn-success">
 							Register
 						</a>
+						<a href="../../index.php" class="btn btn-success">
+							Main website
+						</a>
 					</div>
 				</form>
 			</div>

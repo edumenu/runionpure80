@@ -54,7 +54,7 @@
             <form action="" method="post" id="foo">
                 
               <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="about_content"><?php echo $about_content ?></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="15" name="about_content"><?php echo $about_content ?></textarea>
             </div>
             
               
