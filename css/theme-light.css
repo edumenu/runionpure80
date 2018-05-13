@@ -4013,7 +4013,7 @@ button.close, .close {
       min-height: 100vh;
       padding: 33vh 15px 0;
       box-sizing: border-box;
-      background-color: #253939 !important;
+      background-color: #141414 !important;
       background-size: contain !important;
       background-repeat: no-repeat !important;
       background-position: center !important; }
@@ -4213,7 +4213,7 @@ button.close, .close {
     opacity: 1; }
 
 .about {
-  background: url("../img/about2.jpg") no-repeat scroll center center/cover #fff; }
+  background-color: #fff; color: black}
   @media (min-width: 1200px) {
     .about-counter {
       padding: 60px 0; } }

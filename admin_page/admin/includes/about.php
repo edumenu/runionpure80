@@ -24,13 +24,10 @@
         confirmQuery($result); 
         
         //Redirecting user
-//        redirect("");
-        
+        //redirect("../main/dashboard.php"); 
     }
 
     
-
-
 ?>
 
  <div class="wrapper">
@@ -54,7 +51,7 @@
           <div class="card-body">
            
             <!-- Form -->
-            <form action="" method="post">
+            <form action="" method="post" id="foo">
                 
               <div class="form-group">
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="about_content"><?php echo $about_content ?></textarea>
@@ -62,7 +59,8 @@
             
               
             <div class="form-group">
-              <input class="btn btn-primary" type="submit" name="update_about" value="Update About Content">
+<!--              <input class="btn btn-primary" type="submit" name="update_about" value="Update About Content" id="update_success" onclick="show()">-->
+              <button class="btn btn-primary" type="submit" name="update_about" value="Update About Content" id="update_success">Update About</button>
             </div>
                         
             </form>
