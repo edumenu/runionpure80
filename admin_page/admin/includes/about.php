@@ -22,9 +22,6 @@
         $query = "UPDATE about SET about_content = '{$about_content}', about_date = now() WHERE about_id = 1";
         $result = $connection->query($query);
         confirmQuery($result); 
-        
-        //Redirecting user
-        //redirect("../main/dashboard.php"); 
     }
 
     

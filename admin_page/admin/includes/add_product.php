@@ -26,7 +26,7 @@
             </div>
             <div class="card-body">
                 <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="add_image.php" allowfullscreen></iframe>
+                  <iframe class="embed-responsive-item" src="add_product2.php" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
