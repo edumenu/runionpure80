@@ -33,6 +33,7 @@
     <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
       <!-- Toastr.js -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+   
 </head>
 
 <body class="">

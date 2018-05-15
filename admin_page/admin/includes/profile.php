@@ -19,8 +19,10 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
+                       
+                       
                         <div class="col-md-8">
-                            <div class="card">
+                            <div class="card ">
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title">Edit Profile</h4>
                                     <p class="card-category">Complete your profile</p>
@@ -106,6 +108,8 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        
                         <div class="col-md-4">
                             <div class="card card-profile">
                                 <div class="card-avatar">
