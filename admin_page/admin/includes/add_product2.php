@@ -16,25 +16,15 @@
 <?php include "../../Login/functions.php"; ?>
 <?php 
     
-  //Obtaining the about content already in the database
-//    $query = "SELECT * FROM products";
-//    $result = $connection->query($query);
-//    confirmQuery($result);  
-//
-//    while($row = mysqli_fetch_assoc($result)) {
-//      //Storing the about content into a variable 
-//      $about_content = $row['about_content'];
-//    }
-    
     if(isset($_POST['create_product'])){
         //Obtaining the product data from the form
         $product_description = escape($_POST['product_description']);
         $product_price = escape($_POST['product_price']);
-        $product_image = escape($_FILES['image']['name']);
+        $product_image = $_FILES['image']['name'];
         //Creating a temporary variable to contain the image
-        $product_image_temp = escape($_FILES['image']['tmp_name']);
-        //Moving the uploaded file to a new location in the directory        
-        move_uploaded_file($product_image_temp, "../images/$product_image_temp");
+        $product_image_temp = $_FILES['image']['tmp_name'];
+        //Moving the uploaded file to a new location in the directory    
+        move_uploaded_file($product_image_temp, "images/$product_image");
         
         //Query to send data to the product table
         $query = "INSERT INTO products(product_image, product_description, product_price) VALUES ('{$product_image}','{$product_description}', '{$product_price}')";
@@ -71,7 +61,7 @@
     <!-- /Image-->
    
     <button id="add_product" type="submit" class="btn btn-success" name="create_product">Submit</button>
-  </form>
+ </form>
 </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -91,7 +81,6 @@
                 window.location.reload();
             }
         });
-        
     });  
     
         
@@ -99,7 +88,7 @@
     //get it if Status key found
     if(localStorage.getItem("Status"))
     {
-        toastr.success('Successfully added!', {timeOut: 500}, {"positionClass": "toast-bottom-right"});
+        toastr.success('Successfully added!', {timeOut: 500}, {"positionClass": "toast-top-right"});
         localStorage.clear();
     }
    });     
