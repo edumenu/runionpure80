@@ -374,9 +374,11 @@
 							<!-- Indicators -->
 							<ol class="carousel-indicators">
 								<li class="active" data-slide-to="0" data-target="#product-carousel"> <img alt="" src="img/product.png"> </li>
+<!--
 								<li class="" data-slide-to="1" data-target="#product-carousel"> <img alt="" src="img/product2.png"> </li>
 								<li class="" data-slide-to="2" data-target="#product-carousel"> <img alt="" src="img/product3.png"> </li>
-								<li class="" data-slide-to="3" data-target="#product-carousel"> <img alt="" src="img/product4.png"> </li>
+-->
+<!--								<li class="" data-slide-to="3" data-target="#product-carousel"> <img alt="" src="img/product4.png"> </li>-->
 							</ol>
 						</div>
 						<!-- Wrapper for slides -->
@@ -492,7 +494,7 @@
 					<div class="contact-data">
 						<ul>
 							<li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
-							<li><span class="ti-email icon"></span>lee@example.com</li>
+							<li><span class="ti-email icon"></span>lee_runion@aol.com</li>
 							<li><span class="ti-skype icon"></span>@lee</li>
 						</ul>
 					</div>

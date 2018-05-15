@@ -27,7 +27,15 @@
               <li class="nav-item dropdown">
                     <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">person</i>
-                        <?php echo $_SESSION['firstname']?> <?php echo $_SESSION['lastname']?>
+                        
+                        <?php
+                        if($_SESSION['user_role'] == 'admin' ){
+                          echo $_SESSION['firstname']; echo $_SESSION['lastname'];   
+                        }else{
+                            header("Location: ../../Login/index.php");
+                        }
+                        
+                        ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" data-color="green">
                         <a class="dropdown-item" href="../includes/profile.php">Edit profile</a>

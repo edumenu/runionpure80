@@ -131,7 +131,7 @@ function register_user($username, $email, $password, $firstname, $lastname){
     $result = $connection->query($query);
 
     confirmQuery($result);
-    header("Location: index.php");
+    //header("Location: index.php");
 
 }
 

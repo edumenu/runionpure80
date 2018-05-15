@@ -194,7 +194,7 @@
 					<div class="contact-data">
 						<ul>
 							<li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
-							<li><span class="ti-email icon"></span>lee@exapmle.com</li>
+							<li><span class="ti-email icon"></span>lee_runion@aol.com</li>
 							<li><span class="ti-skype icon"></span>@lee</li>
 						</ul>
 					</div>

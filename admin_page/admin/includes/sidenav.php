@@ -26,17 +26,39 @@ Tip 2: you can also add an image using data-image tag
                     <i class="material-icons">person</i>
                     <p>Edit User Profile</p>
                 </a>
+            </li> 
+               
+            <li class="nav-item ">
+                <a class="nav-link" href="../includes/about.php">
+                    <i class="material-icons">event_note</i>
+                    <p>About section</p>
+                </a>
+            </li>
+               
+            <li class="nav-item ">
+                <a class="nav-link" href="../includes/testimonial.php">
+                    <i class="material-icons">speaker_notes</i>
+                    <p>Testimonial Section</p>
+                </a>
+            </li>
+               
+<!--
+            <li class="nav-item ">
+                <a class="nav-link" href="../includes/shop.php">
+                    <i class="material-icons">shop</i>
+                    <p>Shop Section</p>
+                </a>
             </li>
             
+-->
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <i class="material-icons">content_paste</i>
-               <p>Content</p>
+               <i class="material-icons">shop</i>
+               <p>Shop</p>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="../includes/about.php">About section</a>
-                <a class="dropdown-item" href="../includes/testimonial.php">Testimonial Section</a>
-                <a class="dropdown-item" href="../includes/shop.php">Shop section</a>
+                <a class="dropdown-item" href="../includes/view_all_products.php">View All products</a>
+                <a class="dropdown-item" href="../includes/add_product.php">Add Product</a>
               </div>
             </li>
         

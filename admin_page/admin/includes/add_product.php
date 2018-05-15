@@ -11,7 +11,8 @@
            <!-- Top navbar -->
        <?php include "../includes/topnav.php"?>
        <!-- /Top navbar -->
-          
-         <div class="alert alert-success" role="alert"><h1>Shop</h1></div> 
+ <!-- Page Header -->          
+ <div class="alert alert-success" role="alert"><h1>Add product</h1></div> 
+         
      
 <?php include "footer.php"?>

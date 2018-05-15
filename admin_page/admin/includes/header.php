@@ -1,5 +1,14 @@
 <?php ob_start();?>
 <?php session_start(); ?>
+<?php
+////Log admin out after 20mins in inactivity 
+//if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5)) {
+//     header("Location: ../includes/logout.php");
+////     header("Refresh:0;");
+//}
+//$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+?>
 <?php include "../../Login/functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">

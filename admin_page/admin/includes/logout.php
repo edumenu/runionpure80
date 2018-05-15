@@ -3,10 +3,8 @@
 
 <?php 
 
-//$_SESSION['username'] = null;
-$_SESSION['firstname'] = null;
-$_SESSION['lastname'] = null;
-//$_SESSION['user_role'] = null;
+ session_unset();     // unset $_SESSION variable for the run-time 
+  session_destroy();   // destroy session data in storage
     
 header("Location: ../../Login/index.php");
 
