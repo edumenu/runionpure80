@@ -98,5 +98,26 @@
     }
    });     
     </script>
+        
+     <script>
+
+   $(document).ready(function(){
+
+        $(".delete_link").on('click', function(){
+
+        var id = $(this).attr("rel");  //Obtaining the post id from rel attribute
+//        var name = $(this).attr("id");
+
+//        $("#myModal").modal('show');  //Display the modal
+
+//        //Displaying the user's name to be deleted
+//        document.getElementById('name').innerHTML = name;
+        document.getElementById('modal_delete_link').setAttribute("value",id);  //Set post id to the attribute value 
+        console.log(id);
+     });
+
+   });
+
+ </script>
 
 </html>

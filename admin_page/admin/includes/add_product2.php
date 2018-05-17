@@ -31,7 +31,9 @@
         
         //Sending query and checking for query success
         $result = $connection->query($query);
-        confirmQuery($result);    
+        confirmQuery($result);
+//        redirect("view_all_products.php");
+        echo "<script>window.top.location.href ='view_all_products.php';</script>";
     }  
 ?>
 
@@ -67,32 +69,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
    <!-- Toastr.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script>
-        
-    $("#add_product").on("click", function(){
-       //Making an ajax request to display a message after a change has been made
-        $.ajax({
-          method: "POST",
-          url:"add_product2.php",
-          success: function()
-            {
-                //Showing the update message after the page has finished loading 
-                localStorage.setItem("Status",1)
-                window.location.reload();
-            }
-        });
-    });  
-    
-        
-   $(document).ready(function(){
-    //get it if Status key found
-    if(localStorage.getItem("Status"))
-    {
-        toastr.success('Successfully added!', {timeOut: 500}, {"positionClass": "toast-top-right"});
-        localStorage.clear();
-    }
-   });     
-    </script>
+ 
 
 </body>
 
