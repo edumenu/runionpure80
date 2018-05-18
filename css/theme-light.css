@@ -4774,4 +4774,8 @@ button.close, .close {
   transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33) 0s;
   width: 9px; }
 
-/*# sourceMappingURL=theme-light.css.map */
+/* Custom css  */
+#responsive_img {
+    max-width: 100%;
+    height: auto;
+}

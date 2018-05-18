@@ -41,16 +41,7 @@ Tip 2: you can also add an image using data-image tag
                     <p>Testimonial Section</p>
                 </a>
             </li>
-               
-<!--
-            <li class="nav-item ">
-                <a class="nav-link" href="../includes/shop.php">
-                    <i class="material-icons">shop</i>
-                    <p>Shop Section</p>
-                </a>
-            </li>
-            
--->
+
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="material-icons">shop</i>

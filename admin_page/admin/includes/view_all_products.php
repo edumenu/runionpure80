@@ -13,14 +13,16 @@
     <?php include "../includes/topnav.php"?>
     <!-- /Top navbar -->
 
-     <div class="alert alert-success" role="alert"><h1>List of all products</h1></div>     
+     <div class="alert alert-success" role="alert"><h1>Shop</h1></div>     
          
      <!-- Table for products -->          
      <div class="table-responsive">
       <table class="table table-shopping">
               <thead>
                   <tr>
-                      <th class="text-left">Image</th>
+                      <th class="text-left">First Image</th>
+                      <th class="text-left">Second Image</th>
+                      <th class="text-center">Name</th>
                       <th class="text-center">Description</th>
                       <th class="text-center">Price</th>
                       <th class="text-right">Number of views</th>
@@ -38,18 +40,44 @@
                         while($row = mysqli_fetch_assoc($result)) {
                           //Storing the about content into a variable 
                           $product_id = $row['product_id'];
+                          $product_name = $row['product_name'];
                           $product_description = $row['product_description'];
                           $product_price = $row['product_price'];
-                          $product_image = $row['product_image'];
+                          $product_image_1 = $row['product_image_1'];
+                          $product_image_2 = $row['product_image_2'];
                           $product_views = $row['product_views'];
                     ?> 
                  <tr>
                       <td>  <!-- Image column-->
                           <div class="img-container">
-                              <?php echo " <img src='images/$product_image' alt='...''>"?>
+                              <?php
+                            //Display a default image when there is no image
+                            if(empty($product_image_1)){
+                                echo " <img src='images/default.png' alt='...''>";
+                            }else{
+                                echo " <img src='images/$product_image_1' alt='...''>";
+                            }
+                            ?>
+                          </div>
+                      </td>
+                      <td>  <!-- Image column-->
+                          <div class="img-container">
+                              <?php 
+                             //Display a default image when there is no image
+                            if(empty($product_image_2)){
+                                echo " <img src='images/default.png' alt='...''>"; 
+                            }else{
+                                 echo " <img src='images/$product_image_2' alt='...''>";
+                            }
+                              
+                              ?>
                           </div>
                       </td>
 
+                      <td><!-- Product name column-->
+                         <p class="text-left"><?php echo $product_name?></p>
+                      </td>
+                        
                       <td><!-- Description column-->
                          <p class="text-center"><?php echo $product_description?></p>
                       </td>
@@ -65,7 +93,7 @@
                       </td>
 
                       <td class="td-actions text-right">  <!--Edit and delete column -->
-                       <?php echo "<a title='Edit' href='edit_product.php?p_id={$product_id}'  type='button' class='btn btn-success'><i class='material-icons'>edit</i></a>"?>
+                       <?php echo "<a title='Edit' href='edit_product.php?p_id={$product_id}' type='button' class='btn btn-success'><i class='material-icons'>edit</i></a>"?>
                      
                        <?php echo "<a title='Delete' rel='{$product_id}' href='javascript:void(0)' type='button' class='delete_link btn btn-danger' data-toggle='modal' data-target='#myModal' id='delete_link'><i class='material-icons'>close</i></a>"?>
                       </td>

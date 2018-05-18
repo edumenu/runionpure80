@@ -3,17 +3,17 @@
  <div class="wrapper">
        
    <!-- Side navigation -->
-   <?php include "../includes/sidenav.php"?>
+   <?php include "sidenav.php"?>
    <!-- /Side navigation -->
 
     <div class="main-panel">
 
        <!-- Top navbar -->
-   <?php include "../includes/topnav.php"?>
+   <?php include "topnav.php"?>
    <!-- /Top navbar -->
    
  <!-- Page Header -->          
- <div class="alert alert-success" role="alert"><h1>Add product</h1></div> 
+ <div class="alert alert-success" role="alert"><h1>Shop</h1></div> 
         
         <div class="card">
             <div class="card-header card-header-primary">

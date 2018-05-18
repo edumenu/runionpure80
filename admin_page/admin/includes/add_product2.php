@@ -18,16 +18,20 @@
     
     if(isset($_POST['create_product'])){
         //Obtaining the product data from the form
+        $product_name = escape($_POST['product_name']);
         $product_description = escape($_POST['product_description']);
         $product_price = escape($_POST['product_price']);
-        $product_image = $_FILES['image']['name'];
+        $product_image_1 = $_FILES['image1']['name'];
+        $product_image_2 = $_FILES['image2']['name'];
         //Creating a temporary variable to contain the image
-        $product_image_temp = $_FILES['image']['tmp_name'];
+        $product_image_temp_1 = $_FILES['image1']['tmp_name'];
+        $product_image_temp_2 = $_FILES['image2']['tmp_name'];
         //Moving the uploaded file to a new location in the directory    
-        move_uploaded_file($product_image_temp, "images/$product_image");
+        move_uploaded_file($product_image_temp_1, "images/$product_image_1");
+        move_uploaded_file($product_image_temp_2, "images/$product_image_2");
         
         //Query to send data to the product table
-        $query = "INSERT INTO products(product_image, product_description, product_price) VALUES ('{$product_image}','{$product_description}', '{$product_price}')";
+        $query = "INSERT INTO products(product_name, product_image_1, product_image_2, product_description, product_price) VALUES ('{$product_name}','{$product_image_1}','{$product_image_2}','{$product_description}','{$product_price}')";
         
         //Sending query and checking for query success
         $result = $connection->query($query);
@@ -38,27 +42,43 @@
 ?>
 
 <div class="container">
-  <h2>Add a product</h2>
   <!-- Form -->
   <form action="" method="post" enctype="multipart/form-data">
-   <!-- Description -->
+   <!-- Product name -->
+    <div class="form-group">
+      <label for="email">Product name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter product name" name="product_name">
+    </div>
+     <!-- /Product name -->
+     
+       <!-- Description -->
     <div class="form-group">
       <label for="email">Description:</label>
-      <input type="text" class="form-control" id="description" placeholder="Enter description" name="product_description">
+      <textarea id="description" name="product_description" id="" cols="20" rows="5" class="form-control" placeholder="Enter product description"></textarea>
     </div>
      <!-- /Description -->
      
     <!--Price -->
     <div class="form-group">
       <label for="pwd">Price:</label>
-      <input type="text" class="form-control" id="price" placeholder="Enter price" name="product_price">
+      <input type="text" class="form-control" id="price" placeholder="Enter product price" name="product_price">
     </div>
      <!-- /Price -->
      
       <!-- Image -->
     <div class="form-group">
-     <label for="exampleFormControlFile1">Select an image:</label>
-     <input type="file" class="form-control-file" name="image">
+     <label for="image">Select two images:</label>
+      <table>
+       <tr>
+         <th>First image</th>
+         <th>Second Image</th>
+        </tr>
+       <tr>
+       <td><input type="file" class="form-control-file" name="image1"></td>
+       <td><input type="file" class="form-control-file" name="image2"></td>
+       </tr>
+     </table>
+     
     </div>
     <!-- /Image-->
    

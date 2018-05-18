@@ -35,7 +35,8 @@ function confirmQuery($result) {
 
     if(!$result ) {
           
-        die("QUERY FAILED ." . mysqli_error($connection));   
+    echo "QUERY FAILED . Error:" . $connection->error; 
+//        die(mysqli_error($result));
       }
 }
 
@@ -142,6 +143,46 @@ global $connection;
 
 return mysqli_real_escape_string($connection, trim($string));
 
+}
+
+//Function for empty pictures 2
+function imageCheck1($image_1,$product_id){
+    
+    global $connection;
+    
+    //Query to retreive image of the select product
+    $query = "SELECT * FROM products WHERE product_id = '{$product_id}'";
+    //Sending query and checking for query success
+    $result = $connection->query($query);
+    confirmQuery($result);
+    
+    //Obtain product image from the database
+    while($row = mysqli_fetch_assoc($result)){
+        //Retreive first image
+         $image_1 = $row['product_image_1'];   
+      }
+    
+    return $image_1; 
+}
+
+//Function for empty pictures 2
+function imageCheck2($image_2, $product_id){
+    
+    global $connection;
+    
+    //Query to retreive image of the select product
+    $query = "SELECT * FROM products WHERE product_id = '{$product_id}'";
+    //Sending query and checking for query success
+    $result = $connection->query($query);
+    confirmQuery($result);
+    
+    //Obtain product image from the database
+    while($row = mysqli_fetch_assoc($result)){
+        //Retreive first image
+         $image_2 = $row['product_image_2'];   
+      }
+    
+    return $image_2; 
 }
 
 

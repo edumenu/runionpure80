@@ -1,12 +1,12 @@
 <?php ob_start();?>
 <?php session_start(); ?>
 <?php
-////Log admin out after 20mins in inactivity 
-//if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5)) {
-//     header("Location: ../includes/logout.php");
-////     header("Refresh:0;");
-//}
-//$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+//Log admin out after 20mins in inactivity 
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1200)) {
+      session_unset();     // unset $_SESSION variable for the run-time 
+      session_destroy();   // destroy session data in storage
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 ?>
 <?php include "../../Login/functions.php"; ?>

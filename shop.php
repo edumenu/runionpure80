@@ -1,3 +1,6 @@
+<?php session_start(); ?>
+<?php include "admin_page/Login/includes/db.php"?>
+<?php include "admin_page/Login/functions.php"?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -32,6 +35,7 @@
 					<li><a href="#products">products</a></li>
 					<li><a href="#special">special</a></li>
 					<li><a href="#contact">contact</a></li>
+					<li><a href="admin_page/Login/index.php">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -90,12 +94,8 @@
 	</div>
 	<div class="cart-widget-close-overlay"></div>
 	</div>
-
-
-
-
-
-
+   
+    <!-- Product section -->
 	<section class="section-min section product white-bg" id="products">
 		<div class="container overflow-hidden">
 			<div class="row">
@@ -105,17 +105,33 @@
 				<div class="col-md-12">
 					<div class="product-list-slider">
 						<ul class="swiper-wrapper product-list product-list-vertical">
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".2s"> 
+						<?php
+ 
+                        //Obtaining the about content already in the database
+                        $query = "SELECT * FROM products";
+                        $result = $connection->query($query);
+                        confirmQuery($result);  
+
+                        while($row = mysqli_fetch_assoc($result)) {
+                          //Storing the about content into a variable 
+                          $product_name = $row['product_name'];
+                          $product_description = $row['product_description'];
+                          $product_image_2 = $row['product_image_1'];
+                          $product_image_1 = $row['product_image_2'];
+                          $product_price = $row['product_price'];
+                            
+                         ?>
+							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".1s"> 
 								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product2.png">
+									<a href="#" data-target="#product-01" data-toggle="modal"><img id='responsive_img' alt="product image" class="product-list-primary-img" src="admin_page/admin/includes/images/<?php echo $product_image_1?>"> 
+									<img id='responsive_img' alt="product image" class="product-list-secondary-img" src="admin_page/admin/includes/images/<?php echo $product_image_2?>">
 									</a>
 								</span> 
 
 								<a href="#" data-target="#product-01" data-toggle="modal">
 									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic grey chair</span>
-										<span class="product-list-price">$400.00</span>
+										<span class="product-list-name h4 black-color"><?php echo $product_name?></span>
+										<span class="product-list-price"><?php echo $product_price?></span>
 									</span>
 								</a> 
 
@@ -124,100 +140,11 @@
 								</button> 		
 							</li>
 							
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".4s"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product3.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product4.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic yellow chair</span>
-										<span class="product-list-price">$300.00</span>
-									</span>
-								</a>
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product3.png" data-name="Textile classic yellow chair" data-cost="300.00" data-id="2" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 	
-							</li>
-
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".6s"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product2.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic grey chair no. 2</span>
-										<span class="product-list-price">$600.00</span>
-									</span>
-								</a> 
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair no. 2" data-cost="600.00" data-id="3" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 		
-							</li>
-							
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".8s"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product3.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product4.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic yellow chair no. 2</span>
-										<span class="product-list-price">$500.00</span>
-									</span>
-								</a>
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product3.png" data-name="Textile classic yellow chair no. 2" data-cost="500.00" data-id="4" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 	
-							</li>
-
-							<li class="swiper-slide text-center"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product2.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic grey chair no. 3</span>
-										<span class="product-list-price">$600.00</span>
-									</span>
-								</a> 
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair no. 3" data-cost="600.00" data-id="5" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 		
-							</li>
-							
-							<li class="swiper-slide text-center"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product3.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product4.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic yellow chair no. 3</span>
-										<span class="product-list-price">$500.00</span>
-									</span>
-								</a>
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product3.png" data-name="Textile classic yellow chair no. 3" data-cost="500.00" data-id="6" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 	
-							</li>
+							<?php
+                            
+                        }
+                            
+                            ?>
 						</ul>
 						<!-- Add Pagination -->
 						<div class="product-list-pagination text-center"> </div>
@@ -225,129 +152,14 @@
 						<div class="product-list-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>
 					</div>
 				</div>
-				<div class="col-md-12">
-					<div class="product-list-slider">
-						<ul class="swiper-wrapper product-list product-list-vertical">
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".2s"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product2.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic grey chair</span>
-										<span class="product-list-price">$400.00</span>
-									</span>
-								</a> 
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair" data-cost="400.00" data-id="1" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 		
-							</li>
-							
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".4s"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product3.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product4.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic yellow chair</span>
-										<span class="product-list-price">$300.00</span>
-									</span>
-								</a>
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product3.png" data-name="Textile classic yellow chair" data-cost="300.00" data-id="2" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 	
-							</li>
-
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".6s"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product2.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic grey chair no. 2</span>
-										<span class="product-list-price">$600.00</span>
-									</span>
-								</a> 
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair no. 2" data-cost="600.00" data-id="3" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 		
-							</li>
-							
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".8s"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product3.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product4.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic yellow chair no. 2</span>
-										<span class="product-list-price">$500.00</span>
-									</span>
-								</a>
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product3.png" data-name="Textile classic yellow chair no. 2" data-cost="500.00" data-id="4" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 	
-							</li>
-
-							<li class="swiper-slide text-center"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product2.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic grey chair no. 3</span>
-										<span class="product-list-price">$600.00</span>
-									</span>
-								</a> 
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair no. 3" data-cost="600.00" data-id="5" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 		
-							</li>
-							
-							<li class="swiper-slide text-center"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img alt="product image" class="product-list-primary-img" src="img/product3.png"> 
-									<img alt="product image" class="product-list-secondary-img" src="img/product4.png">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color">Textile classic yellow chair no. 3</span>
-										<span class="product-list-price">$500.00</span>
-									</span>
-								</a>
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product3.png" data-name="Textile classic yellow chair no. 3" data-cost="500.00" data-id="6" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 	
-							</li>
-						</ul>
-						<!-- Add Pagination -->
-						<div class="product-list-pagination text-center"> </div>
-						<div class="product-list-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>
-						<div class="product-list-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>
-					</div>
-				</div>
+				
+				
+				
+			<!-- Second row -->
+				
+				
+				
+				
 			</div>
 		</div>
 		
@@ -363,31 +175,30 @@
 				<div class="modal-content shadow">
 					<a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
 					<div class="modal-body">
+					
 						<!-- Wrapper for slides -->
 						<div class="carousel slide product-slide" id="product-carousel">
 							<div class="carousel-inner cont-slider">
-								<div class="item active"> <img alt="" src="img/product.png" title=""> </div>
-								<div class="item"> <img alt="" src="img/product2.png" title=""> </div>
-								<div class="item"> <img alt="" src="img/product3.png" title=""> </div>
-								<div class="item"> <img alt="" src="img/product4.png" title=""> </div>
+								<div class="item active"> <img alt="" src="img/surf.jpg" title=""> </div>
+								<div class="item"> <img alt="" src="img/abstract.jpg" title=""> </div>
 							</div>
+							
 							<!-- Indicators -->
 							<ol class="carousel-indicators">
-								<li class="active" data-slide-to="0" data-target="#product-carousel"> <img alt="" src="img/product.png"> </li>
-<!--
-								<li class="" data-slide-to="1" data-target="#product-carousel"> <img alt="" src="img/product2.png"> </li>
-								<li class="" data-slide-to="2" data-target="#product-carousel"> <img alt="" src="img/product3.png"> </li>
--->
-<!--								<li class="" data-slide-to="3" data-target="#product-carousel"> <img alt="" src="img/product4.png"> </li>-->
+								<li class="active" data-slide-to="0" data-target="#product-carousel"> <img alt="" src="img/surf.jpg"> </li>
+								<li class="" data-slide-to="1" data-target="#product-carousel"> <img alt="" src="img/abstract.jpg"> </li>
 							</ol>
 						</div>
+						
+						
 						<!-- Wrapper for slides -->
 						<div class="container">
 							<div class="row">
 								<div class="col-md-8 col-md-push-2">
 									<div class="row">
+									
 										<div class="col-md-8">
-											<h3 class="pull-left section-heading">Textile classic grey chair</h3>
+											<h3 class="pull-left section-heading">Name of product</h3>
 										</div>
 										<div class="col-md-4">
 											<span class="product-right-section">
@@ -396,39 +207,23 @@
 												<span class="ti-shopping-cart"></span>add to cart </button>
 											</span>
 										</div>
+										
 									</div>
 								</div>
 								<div class="col-md-8 col-md-push-2 product-description">
-									<h4 class="section-heading">Ut enim ad minim veniam</h4>
-									<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-									<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
-									<div class="row">
-										<div class="col-md-6"> <img src="img/product.png" class="img-responsive" alt="product image"> </div>
-										<div class="col-md-6">
-											<h4 class="section-heading">Ut enim ad minim veniam</h4>
-											<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-										</div>
-									</div>
+									
 									<div class="product-tabs">
 										<ul class="nav nav-tabs">
 											<li class="active"><a data-toggle="tab" href="#tab1">Details</a></li>
-											<li><a data-toggle="tab" href="#tab2">Info tab</a></li>
-											<li><a data-toggle="tab" href="#tab3">Other info </a></li>
 										</ul>
+										
 										<div class="tab-content">
 											<div id="tab1" class="tab-pane fade in active">
 												<h4 class="section-heading">details</h4>
 												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-											</div>
-											<div id="tab2" class="tab-pane fade">
-												<h4 class="section-heading">Info tab</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-											</div>
-											<div id="tab3" class="tab-pane fade">
-												<h4 class="section-heading">other info</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-											</div>
+											</div>	
 										</div>
+										
 									</div>
 								</div>
 							</div>
