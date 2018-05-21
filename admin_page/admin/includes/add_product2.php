@@ -26,21 +26,23 @@
         //Creating a temporary variable to contain the image
         $product_image_temp_1 = $_FILES['image1']['tmp_name'];
         $product_image_temp_2 = $_FILES['image2']['tmp_name'];
+        
         //Moving the uploaded file to a new location in the directory    
         move_uploaded_file($product_image_temp_1, "images/$product_image_1");
         move_uploaded_file($product_image_temp_2, "images/$product_image_2");
         
+        //Checking to see if the first uploaded image is empty or not. IF it is, replace it with the second image 
         if(empty($product_image_1)){
             $product_image_1 = $product_image_2;
             $product_image_2 = '';
         }
+        
         //Query to send data to the product table
         $query = "INSERT INTO products(product_name, product_image_1, product_image_2, product_description, product_price) VALUES ('{$product_name}','{$product_image_1}','{$product_image_2}','{$product_description}','{$product_price}')";
         
         //Sending query and checking for query success
         $result = $connection->query($query);
         confirmQuery($result);
-//        redirect("view_all_products.php");
         echo "<script>window.top.location.href ='view_all_products.php';</script>";
     }  
 ?>

@@ -20,9 +20,9 @@ if(username_exists($username) == false){
     //Registering the new user
     register_user($username, $email, $password, $firstname, $lastname);
 
-}else{
+ }else{
     $_SESSION['error'] = $error_alreadyExist;
-}
+  }
     
 }
 

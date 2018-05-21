@@ -17,8 +17,8 @@
 <?php 
     
     if(isset($_GET['p_id'])){
-        //Obtaining the product ID from the selected product
-        $the_product_id = escape($_GET['p_id']);
+    //Obtaining the product ID from the selected product
+    $the_product_id = escape($_GET['p_id']);
         
     //Query to retreive data to the product table
     $query = "SELECT * FROM products WHERE product_id = '{$the_product_id}'";
@@ -84,6 +84,7 @@
     }
         
     }else{
+        
         echo "<div class='alert alert-danger text-center'><strong>No product was selected!</strong></div>";
     }
     

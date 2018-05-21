@@ -5,7 +5,6 @@ function redirect($location){
     
     header("Location:" . $location);
     exit;
-    
 }
 
 //Function to check if username exist when registering
@@ -14,7 +13,6 @@ function username_exists($username){
     global $connection;
 
     $query = "SELECT username FROM users WHERE username = '$username'";
-//    $result = mysqli_query($connection, $query);
     $result = $connection->query($query);
     confirmQuery($result);
 
@@ -35,8 +33,8 @@ function confirmQuery($result) {
 
     if(!$result ) {
           
-    echo "QUERY FAILED . Error:" . $connection->error; 
-//        die(mysqli_error($result));
+    echo "QUERY FAILED . Error:" . $connection->error;
+        
       }
 }
 
@@ -76,14 +74,12 @@ function confirmQuery($result) {
         $db_user_role = $row['user_role'];   
         }
 
-        if(password_verify($password,$db_user_password) && $db_user_role == 'admin' ) {
-//            echo "Password is correct!";
+    if(password_verify($password,$db_user_password) && $db_user_role == 'admin' ) {
 
-    //    Setting a session
-    //    $_SESSION['username'] = $db_username;
-          $_SESSION['firstname'] = $db_user_firstname;
-          $_SESSION['lastname'] = $db_user_lastname;
-          $_SESSION['user_role'] = $db_user_role;
+        //Setting a session
+        $_SESSION['firstname'] = $db_user_firstname;
+        $_SESSION['lastname'] = $db_user_lastname;
+        $_SESSION['user_role'] = $db_user_role;
 
         //Open the admin the page when username and password are correct 
         header("Location: ../../admin/main/dashboard.php");
@@ -94,16 +90,13 @@ function confirmQuery($result) {
             header("Location: ../index.php");
         }
 
-
     }else{
         //Creating the error message
         $_SESSION['error'] = $error_user;
         header("Location: ../index.php");
 
-     return true;
-
+        return true;
  }
-     
      
  }
 
@@ -146,7 +139,7 @@ return mysqli_real_escape_string($connection, trim($string));
 
 }
 
-//Function for empty pictures 2
+//Function for empty pictures 1
 function imageCheck1($image_1,$product_id){
     
     global $connection;
@@ -185,6 +178,5 @@ function imageCheck2($image_2, $product_id){
     
     return $image_2; 
 }
-
 
 ?>

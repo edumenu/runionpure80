@@ -111,44 +111,33 @@
      </div>
      
      
-                                  <?php 
-//        //Post request to delete product
-        if(isset($_POST['delete'])){
-            //Checking to see if its a user
-//            if(isset($_SESSION['user_role'])){
-                //CHecking to see if user is an admin
-//                if($_SESSION['user_role'] == 'admin'){
-                    //Obtaining the product id
-                    $the_product_id = escape($_POST['product_id']);
-            
-                    //Obtaining the ID for the image and deleting it in the directory
-                    if(!empty($the_product_id)){
-                        $query = "SELECT * FROM products WHERE product_id = '{$the_product_id}'";
-                        $result = $connection->query($query);
+ <?php 
+    //Post request to delete product
+    if(isset($_POST['delete'])){
+        //Obtaining the product id
+        $the_product_id = escape($_POST['product_id']);
 
-                        while($row = mysqli_fetch_assoc($result)){
-                          $product_image_1 = $row['product_image_1'];
-                          $product_image_2 = $row['product_image_2'];
-                          $file1 = 'images/'. $product_image_1;
-                          $file2 = 'images/'. $product_image_2;
-                          unlink($file1);
-                          unlink($file2);    
-                        }
-                    }
-            
-                    
-                    $query = "DELETE FROM products WHERE product_id = '{$the_product_id}'";
-                    $result = $connection->query($query);
-                    confirmQuery($result);
-                    redirect("view_all_products.php");
-                    
-                }
-            //}
-        //}
-         
-        ?>
-     
-     
+        //Obtaining the ID for the image and deleting it in the directory
+        if(!empty($the_product_id)){
+            $query = "SELECT * FROM products WHERE product_id = '{$the_product_id}'";
+            $result = $connection->query($query);
+            //Remove the deleted image from the directory
+            while($row = mysqli_fetch_assoc($result)){
+              $product_image_1 = $row['product_image_1'];
+              $product_image_2 = $row['product_image_2'];
+              $file1 = 'images/'. $product_image_1;
+              $file2 = 'images/'. $product_image_2;
+              unlink($file1);
+              unlink($file2);    
+            }
+        }
+
+        $query = "DELETE FROM products WHERE product_id = '{$the_product_id}'";
+        $result = $connection->query($query);
+        confirmQuery($result);
+        redirect("view_all_products.php");
+    }
+ ?>   
      
          <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
@@ -167,10 +156,8 @@
              
      
           <div class="modal-footer">
-           
-           
+            
              <form action="" method="post">
-          
              
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
@@ -180,9 +167,7 @@
               
              </form>
            
-           
           </div>
-
        </div>
      </div>
     </div> 

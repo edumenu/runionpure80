@@ -5,7 +5,7 @@
 
 <?php
 
-//Ending a users session
+//Ending a users session and logging them out
 $_SESSION['username'] = null;
 $_SESSION['firstname'] = null;
 $_SESSION['lastname'] = null;

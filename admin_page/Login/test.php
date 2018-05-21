@@ -13,30 +13,23 @@
 
 <?php 
     
-$counter = 0;
-while($counter <= 20 ){
+    $counter = 0;
+    while($counter <= 20 ){
 
-    if($counter % 4 == 0 || $counter ==0){
-        echo "..."; 
-    }
-    echo "{$counter}";
-    
-    if($counter % 4 == 0 || $counter ==0){
-        echo "..."; 
-    }
-    $counter++;
-//    $counter = $counter + 1;
+        if($counter % 4 == 0 || $counter ==0){
+            echo "..."; 
+        }
+        echo "{$counter}";
 
-}
+        if($counter % 4 == 0 || $counter ==0){
+            echo "..."; 
+        }
+        $counter++;
+    }
   
 ?>    
 
-
-    
-    
-
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
    $(document).ready(function(){

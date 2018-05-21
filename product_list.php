@@ -42,7 +42,7 @@
       $product_price = $row['product_price'];
        
       echo "<li class='swiper-slide wow fadeInUp text-center' data-wow-delay='.1s'> 
-                <span class='product-list-left pull-left' style='height: 10%; !important'>
+                <span class='product-list-left pull-left'>
                     <a id='prod' href='#' data-target='#product-01' data-toggle='modal'><img class='prod' rel='{$product_id}' id='responsive_img' alt='product image'  src='admin_page/admin/includes/images/{$product_image_1}'>
                     </a>
                 </span> 

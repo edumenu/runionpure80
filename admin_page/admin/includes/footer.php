@@ -93,6 +93,7 @@
     //get it if Status key found
     if(localStorage.getItem("Status"))
     {
+        //Calling the toastr alert
         toastr.success('update successfully', {timeOut: 500}, {"positionClass": "toast-bottom-right"});
         localStorage.clear();
     }

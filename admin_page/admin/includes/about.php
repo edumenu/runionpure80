@@ -60,13 +60,12 @@
             </form>
             <!-- /Form -->
             
-            
             <?php
                //Sending a post request to add a credential
                if(isset($_POST['add_cred'])){
                 //Obtaining the value in the textarea
                 $cred_list = escape($_POST['cred']);
-                //Obtaining the about content already in the database
+                //Inserting a new credential into the database
                 $query = "INSERT INTO credentials(cred_list) VALUES ('{$cred_list}')";
                 $result = $connection->query($query);
                 confirmQuery($result); 
@@ -100,7 +99,7 @@
 
                        <?php
 
-                        //Obtaining all the products from the database
+                        //Obtaining all the credentials from the database
                         $query = "SELECT * FROM credentials";
                         $result = $connection->query($query);
                         confirmQuery($result);
@@ -114,7 +113,7 @@
                           $cred_id = $row['cred_id'];
                           $cred_list = $row['cred_list'];
                         ?>
-                        <col width="130">
+                       <col width="130">
                        <col height="100">
                         <tr>
                             <td class="col-sm">
@@ -136,12 +135,12 @@
         </div>
         
         <?php 
-//        //Post request to delete product
+        //Post request to delete credential
         if(isset($_POST['delete'])){
             //Checking to see if its a user
-//            if(isset($_SESSION['user_role'])){
+            //if(isset($_SESSION['user_role'])){
                 //CHecking to see if user is an admin
-//                if($_SESSION['user_role'] == 'admin'){
+               // if($_SESSION['user_role'] == 'admin'){
                     //Obtaining the product id
                     $the_cred_id = escape($_POST['cred_id']);
                     
@@ -151,7 +150,7 @@
                     echo "<script>window.top.location.href ='about.php';</script>";
                     
                 }
-            //}
+           //}
         //}
          
         ?>
