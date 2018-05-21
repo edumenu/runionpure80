@@ -133,6 +133,7 @@ function register_user($username, $email, $password, $firstname, $lastname){
 
     confirmQuery($result);
     //header("Location: index.php");
+    echo "<script>window.top.location.href ='index.php';</script>";
 
 }
 

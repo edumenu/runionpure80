@@ -22,13 +22,15 @@
       $product_image_1 = $row['product_image_1'];
       $product_image_2 = $row['product_image_2'];
       $product_description = $row['product_description'];
+      $product_price = $row['product_price'];
       //Creating and storing the variables in an associative array
       $product = array(
                  "product_id" => $product_id,
                  "product_name" => $product_name,
                  "product_image_1" => $product_image_1,
                  "product_image_2" => $product_image_2,
-                 "product_description" => $product_description
+                 "product_description" => $product_description,
+                 "product_price" => $product_price
                 );    
       //COnverting the associated array into a JSON string    
       echo json_encode($product);

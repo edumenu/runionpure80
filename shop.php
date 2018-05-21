@@ -115,8 +115,6 @@
 						<div class="product-list-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>
 					</div>
 				</div>
-				
-				
 			<!-- Second row -->
 				
 				
@@ -157,7 +155,7 @@
 									<div class="row">
 									
 										<div class="col-md-8">
-											<h3 class="pull-left section-heading">Name of product</h3>
+											<h3 id="prod_name" class="pull-left section-heading">Name of product</h3>
 										</div>
 										<div class="col-md-4">
 											<span class="product-right-section">
@@ -179,7 +177,7 @@
 										<div class="tab-content">
 											<div id="tab1" class="tab-pane fade in active">
 												<h4 class="section-heading">details</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												<p id='prod_description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 											</div>	
 										</div>
 										
@@ -326,6 +324,9 @@
                      $('#prod_im12').attr('src',new_img + prod.product_image_2);
                      $('#prod_im21').attr('src',new_img + prod.product_image_1);
                      $('#prod_im22').attr('src',new_img + prod.product_image_2);
+                     $('#prod_name').html(prod.product_name);
+                     $('#product_price').html(prod.product_price);
+                     $('#prod_description').html(prod.product_description);
                    
                  }
             });  
