@@ -14,6 +14,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 	<link href="css/bootstrap-light.css" rel="stylesheet">
 	<link id="pagestyle" href="css/theme-light.css" rel="stylesheet">
+	
 </head>
 
 <!--  Navigation  -->
@@ -104,48 +105,10 @@
 				</div>
 				<div class="col-md-12">
 					<div class="product-list-slider">
-						<ul class="swiper-wrapper product-list product-list-vertical">
-						<?php
- 
-                        //Obtaining the about content already in the database
-                        $query = "SELECT * FROM products";
-                        $result = $connection->query($query);
-                        confirmQuery($result);  
-
-                        while($row = mysqli_fetch_assoc($result)) {
-                          //Storing the about content into a variable 
-                          $product_name = $row['product_name'];
-                          $product_description = $row['product_description'];
-                          $product_image_2 = $row['product_image_1'];
-                          $product_image_1 = $row['product_image_2'];
-                          $product_price = $row['product_price'];
-                            
-                         ?>
-							<li class="swiper-slide wow fadeInUp text-center" data-wow-delay=".1s"> 
-								<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal"><img id='responsive_img' alt="product image" class="product-list-primary-img" src="admin_page/admin/includes/images/<?php echo $product_image_1?>"> 
-									<img id='responsive_img' alt="product image" class="product-list-secondary-img" src="admin_page/admin/includes/images/<?php echo $product_image_2?>">
-									</a>
-								</span> 
-
-								<a href="#" data-target="#product-01" data-toggle="modal">
-									<span class="product-list-right pull-left">
-										<span class="product-list-name h4 black-color"><?php echo $product_name?></span>
-										<span class="product-list-price"><?php echo $product_price?></span>
-									</span>
-								</a> 
-
-								<button class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair" data-cost="400.00" data-id="1" >
-									<span class="ti-shopping-cart"></span>add to cart
-								</button> 		
-							</li>
-							
-							<?php
-                            
-                        }
-                            
-                            ?>
-						</ul>
+					
+					   <!-- Displaying the images from the database -->
+					   <?php include "product_image.php"?>
+					
 						<!-- Add Pagination -->
 						<div class="product-list-pagination text-center"> </div>
 						<div class="product-list-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>
@@ -154,16 +117,11 @@
 				</div>
 				
 				
-				
 			<!-- Second row -->
-				
-				
 				
 				
 			</div>
 		</div>
-		
-		
 		
 		
 		
@@ -179,14 +137,15 @@
 						<!-- Wrapper for slides -->
 						<div class="carousel slide product-slide" id="product-carousel">
 							<div class="carousel-inner cont-slider">
-								<div class="item active"> <img alt="" src="img/surf.jpg" title=""> </div>
-								<div class="item"> <img alt="" src="img/abstract.jpg" title=""> </div>
+		
+								<div class="item active"> <img id="prod_im11" alt="" src="admin_page/admin/includes/images/default.png"> </div>
+								<div class="item"> <img id="prod_im12" alt="" src="admin_page/admin/includes/images/default.png"> </div>
 							</div>
 							
 							<!-- Indicators -->
 							<ol class="carousel-indicators">
-								<li class="active" data-slide-to="0" data-target="#product-carousel"> <img alt="" src="img/surf.jpg"> </li>
-								<li class="" data-slide-to="1" data-target="#product-carousel"> <img alt="" src="img/abstract.jpg"> </li>
+								<li class="active" data-slide-to="0" data-target="#product-carousel"> <img id="prod_im21" alt="" src="admin_page/admin/includes/images/default.png"> </li>
+								<li class="" data-slide-to="1" data-target="#product-carousel"> <img id="prod_im22" alt="" src="admin_page/admin/includes/images/default.png"> </li>
 							</ol>
 						</div>
 						
@@ -202,7 +161,7 @@
 										</div>
 										<div class="col-md-4">
 											<span class="product-right-section">
-												<span>$299.00</span>
+												<span id="product_price">$299.00</span>
 												<button class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair" data-cost="299.00" data-id="8">
 												<span class="ti-shopping-cart"></span>add to cart </button>
 											</span>
@@ -229,6 +188,7 @@
 							</div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -381,6 +341,52 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_6m6Glf1-P7jvVdHZ00e3Ue_EoUNe39g"></script>
 	<script src="js/tt-cart.js"></script>
 	<script src="js/main.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script>
+
+   $(document).ready(function(){
+ 
+        //Chnaging the images in the modal when the user selects an image
+        $(".prod").on('click', function(data){
+            
+            var id = $(this).attr("rel");  //Obtaining the name of the image selected
+            var new_img = 'admin_page/admin/includes/images/';  //Image template
+            var default_img = 'default.png';
+            
+             $.get('product_data.php', {'key' : id} ,function(data,status){
+                 //Checking for errors
+                 if(status == '404'){
+                     alert('Requested page not found. [404]');
+                 }else if(status == '500'){
+                       alert('Internal Server Error [500]');
+                 }else{
+                     //Parsing the JSON object
+                     var prod = jQuery.parseJSON(data);
+
+                     //Dynamically changing the image src's
+                     $('#prod_im11').attr('src',new_img + prod.product_image_1);
+                     $('#prod_im12').attr('src',new_img + prod.product_image_2);
+                     $('#prod_im21').attr('src',new_img + prod.product_image_1);
+                     $('#prod_im22').attr('src',new_img + prod.product_image_2);
+                   
+                 }
+            });  
+     });
+       
+       //Changing the images in the modal to the efault images
+//       $('.close').on('click', function(){
+//           var default_img = 'admin_page/admin/includes/images/default.png';
+//            $('#prod_im1').attr('src',default_img);
+//            $('#prod_im2').attr('src',default_img);
+//           $('input#prod_price').val() = '';
+//       });
+
+
+   });
+
+ </script>
+   
+	
 </body>
 
 </html>

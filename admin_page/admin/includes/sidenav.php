@@ -22,9 +22,9 @@ Tip 2: you can also add an image using data-image tag
             </li>
             
             <li class="nav-item ">
-                <a class="nav-link" href="../includes/profile.php">
-                    <i class="material-icons">person</i>
-                    <p>Edit User Profile</p>
+                <a class="nav-link" href="../includes/image_slider.php">
+                    <i class="material-icons">image</i>
+                    <p>Image Slider</p>
                 </a>
             </li> 
                

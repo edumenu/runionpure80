@@ -17,8 +17,8 @@
          
      <!-- Table for products -->          
      <div class="table-responsive">
-      <table class="table table-shopping">
-              <thead>
+      <table class="table table-shopping table-bordered">
+              <thead style="background-color: #A23AB5;color: white;">
                   <tr>
                       <th class="text-left">First Image</th>
                       <th class="text-left">Second Image</th>
@@ -35,7 +35,12 @@
                      //Obtaining all the products from the database
                         $query = "SELECT * FROM products";
                         $result = $connection->query($query);
-                        confirmQuery($result);  
+                        confirmQuery($result);
+                        $num_rows = mysqli_num_rows($result);
+        
+                       if($num_rows == 0){
+                           echo "<div class='alert alert-danger text-center' role='alert'> There are no products!</div>";
+                          }else{
 
                         while($row = mysqli_fetch_assoc($result)) {
                           //Storing the about content into a variable 
@@ -47,7 +52,7 @@
                           $product_image_2 = $row['product_image_2'];
                           $product_views = $row['product_views'];
                     ?> 
-                 <tr>
+                 <tr id="product_table">
                       <td>  <!-- Image column-->
                           <div class="img-container">
                               <?php
@@ -79,7 +84,7 @@
                       </td>
                         
                       <td><!-- Description column-->
-                         <p class="text-center"><?php echo $product_description?></p>
+                         <p class="text-center" style="overflow-x:hidden;height: 80px;"><?php echo $product_description?></p>
                       </td>
 
                       <td><!-- Price column-->
@@ -99,7 +104,7 @@
                       </td>
                   </tr>
                   
-                  <?php } ?>
+                  <?php } } ?>
                   
               </tbody>
       </table>

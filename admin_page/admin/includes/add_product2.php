@@ -30,6 +30,10 @@
         move_uploaded_file($product_image_temp_1, "images/$product_image_1");
         move_uploaded_file($product_image_temp_2, "images/$product_image_2");
         
+        if(empty($product_image_1)){
+            $product_image_1 = $product_image_2;
+            $product_image_2 = '';
+        }
         //Query to send data to the product table
         $query = "INSERT INTO products(product_name, product_image_1, product_image_2, product_description, product_price) VALUES ('{$product_name}','{$product_image_1}','{$product_image_2}','{$product_description}','{$product_price}')";
         

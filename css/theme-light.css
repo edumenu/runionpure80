@@ -4776,6 +4776,8 @@ button.close, .close {
 
 /* Custom css  */
 #responsive_img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
+
+a.disabled:link, a.disabled:visited { color: grey; }
