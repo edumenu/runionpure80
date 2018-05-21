@@ -4,6 +4,29 @@
     $query = "SELECT * FROM products LIMIT 4";
     $result = $connection->query($query);
     confirmQuery($result);
+    $num_rows = mysqli_num_rows($result);
+        
+        if($num_rows == 0){
+            echo "<ul class='swiper-wrapper product-list product-list-vertical'>
+            <li class='swiper-slide wow fadeInUp text-center' data-wow-delay='.1s'> 
+                <span class='product-list-left pull-left'>
+                    <a id='prod' href='#' data-target='#product-01' data-toggle='modal'><img class='prod' id='responsive_img' alt='product image'  src='admin_page/admin/includes/images/default.png'>
+                    </a>
+                </span> 
+                <a href='#' data-target='#product-01' data-toggle='modal'>
+                    <span class='product-list-right pull-left'>
+                        <span class='product-list-name h4 black-color'>No Image</span>
+                        <span class='product-list-price'>No price</span>
+
+                    </span>
+                </a>
+
+                <button class='btn btn-default add-item' type='button' data-image='img/product.png' data-name='Textile classic grey chair' data-cost='400.00' data-id='1'>
+                    <span class='ti-shopping-cart'></span>add to cart
+                </button> 		
+             </li>
+             </ul>";
+        }else{
 
    echo "<ul class='swiper-wrapper product-list product-list-vertical'>";
 
@@ -39,5 +62,6 @@
     }
 
   echo "</ul>";
+    }
 
 ?>

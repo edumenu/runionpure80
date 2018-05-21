@@ -48,11 +48,29 @@
 	<section class="home section image-slider" id="home">
 		<div class="home-slider text-center">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide" style="background: url(img/slider/lee3.jpg);">
+			
+			
+                    <?php
+
+                    //Obtaining the about content already in the database
+                    $query = "SELECT * FROM slider";
+                    $result = $connection->query($query);
+                    confirmQuery($result);  
+
+                    while($row = mysqli_fetch_assoc($result)) {
+                      //Storing the about content into a variable 
+                      $slider_id = $row['slider_id'];
+                      $slider_image = $row['slider_image']; 
+
+                     ?>	
+			
+				<div class="swiper-slide" style="background: url(img/slider/<?php echo $slider_image?>);">
 					<a class="arrow bounce text-center" href="#about"> About<span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
 					<h2 class="home-slider-title-main" style="position: absolute; bottom: 0; text-align: center; width: 100%;">Richard Lee Runion</h2>
 				</div>
+				<?php } ?>
 
+<!--
 				<div class="swiper-slide" style="background: url(img/slider/lee2.jpg);">
 					<h2 class="home-slider-title-main">Richard Lee Runion</h2>
 					<a class="arrow bounce text-center" href="#about"> <span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
@@ -67,6 +85,7 @@
 					<h2 class="home-slider-title-main">Richard Lee Runion</h2>
 					<a class="arrow bounce text-center" href="#about"> <span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
 				</div>
+-->
 
 			</div>
 			<div class="home-pagination"></div>
@@ -154,21 +173,12 @@
 				<div class="testimonials-slider text-center col-md-12">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<div class="testimonials-container shadow"> <img alt="user avatar" class="wow fadeInUp" src="img/user1.png">
+							<div class="testimonials-container shadow"> <img alt="user avatar" class="wow fadeInUp" src="img/slider/lee1.jpg">
 								<h3 class="wow fadeInUp" data-wow-delay=".4s"><?php echo $test_title?> </h3>
 								<p class="wow fadeInUp" data-wow-delay=".6s"> <?php echo $test_content?> </p>
 								<h5 style="font-size: 0.7em; text-align: right;">Last update: <bold><?php echo $newDate2?></bold></h5>
 							</div>
 						</div>
-
-<!--
-						<div class="swiper-slide">
-							<div class="testimonials-container shadow"> <img alt="user avatar" class="wow fadeInUp" src="img/user.png">
-								<h3 class="wow fadeInUp" data-wow-delay=".4s"> Martin Johe, Co-Founder / CEO <span>Fastcompany ltd.</span> </h3>
-								<p class="wow fadeInUp" data-wow-delay=".6s"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-							</div>
-						</div>
--->
 					</div>
 					<div class="testimonials-pagination"></div>
 					<div class="testimonials-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>

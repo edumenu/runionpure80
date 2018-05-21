@@ -12,6 +12,7 @@
       //Storing the about content into a variable 
       $test_content = $row['test_content'];
       $test_title = $row['test_title'];
+//      $test_image = $row['test_image'];
     }
 
 
@@ -19,6 +20,13 @@
         //Obtaining the value in the textarea
         $test_content = escape($_POST['test_content']); 
         $test_title = escape($_POST['test_title']);
+//        $test_image = $_FILES['image1']['name'];
+//        
+//         //Creating a temporary variable to contain the image
+//        $test_image_tmp = $_FILES['image1']['tmp_name'];
+//        
+//        //Moving the uploaded file to a new location in the directory    
+//        move_uploaded_file($test_image_tmp, "images/$test_image");
         
         //Obtaining the about content already in the database
         $query = "UPDATE testimonial SET test_content = '{$test_content}', test_date = now() , test_title = '{$test_title}' WHERE test_id = 1";
@@ -61,8 +69,7 @@
 
                   <div class="form-group">
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="15" name="test_content"><?php echo $test_content ?></textarea>
-                </div>
-
+                  </div>
 
                 <div class="form-group">
     <!--              <input class="btn btn-primary" type="submit" name="update_about" value="Update About Content" id="update_success" onclick="show()">-->

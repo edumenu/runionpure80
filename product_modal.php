@@ -10,8 +10,12 @@
      //Obtaining all the products from the database
     $query = "SELECT * FROM products WHERE product_id = $the_product_id";
     $result = $connection->query($query);
-
-    while($row = mysqli_fetch_assoc($result)) {
+    $num_rows = mysqli_num_rows($result);
+        
+    if($num_rows == 0){
+        echo "<div class='alert alert-danger' role='alert'> There are no images, please come back later</div>";
+     }else{
+     while($row = mysqli_fetch_assoc($result)) {
       //Storing the product content into a variable 
       $product_id = $row['product_id'];
       $product_name = $row['product_name'];
@@ -28,6 +32,8 @@
                 );    
       //COnverting the associated array into a JSON string    
       echo json_encode($product);
-    } 
-    } 
+        } 
+    }
+        
+    }
 ?>

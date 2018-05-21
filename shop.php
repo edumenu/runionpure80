@@ -107,7 +107,7 @@
 					<div class="product-list-slider">
 					
 					   <!-- Displaying the images from the database -->
-					   <?php include "product_image.php"?>
+					   <?php include "product_list.php"?>
 					
 						<!-- Add Pagination -->
 						<div class="product-list-pagination text-center"> </div>
@@ -194,48 +194,6 @@
 		</div>
 		<!-- / PRODUCT MODAL -->
 	</section>
-	
-
-	
-	
-	
-
-<!-- Special-->
-	<section class="countdown" id="special">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="section-heading">special!</h3>
-				</div>
-				<div class="col-md-5">
-					<ul class="product-list product-list-vertical">
-						<li class="wow fadeInUp" data-wow-delay=".2s">
-							<span class="product-list-left pull-left">
-									<a href="#" data-target="#product-01" data-toggle="modal">
-										<img alt="product image" class="product-list-primary-img" src="img/product3.png"> 
-										<img alt="product image" class="product-list-secondary-img" src="img/product4.png">
-									</a>
-							</span>
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-7 text-center">
-					<div class="countdown-container">
-						<h3 class="wow fadeInDown">Yellow textile chair</h3>
-						<p class="wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-						<!-- data in countdown ul from js -->
-						<ul id="countdown" class="countdown-counter wow fadeInUp"></ul>
-						<!-- data in countdown ul from js --><span class="countdown-price h3 wow fadeInUp">$420.00</span>
-						<button class="btn btn-default add-item wow swing" type="button" data-image="img/product.png" data-name="Yellow textile chair [promo]" data-cost="420.00" data-id="9">
-							<span class="ti-shopping-cart"></span>add to cart
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-<!--End of special-->
-
 
 <!-- Contact -->
 
@@ -353,7 +311,7 @@
             var new_img = 'admin_page/admin/includes/images/';  //Image template
             var default_img = 'default.png';
             
-             $.get('product_data.php', {'key' : id} ,function(data,status){
+             $.get('product_modal.php', {'key' : id} ,function(data,status){
                  //Checking for errors
                  if(status == '404'){
                      alert('Requested page not found. [404]');

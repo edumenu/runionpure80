@@ -18,7 +18,7 @@
         
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title">Add or delete images for the image slider</h4>
+                <h4 class="card-title">Add or delete images for the image slider on the home page</h4>
             </div>
             
             <div class="card-body">
