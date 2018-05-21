@@ -120,6 +120,22 @@
 //                if($_SESSION['user_role'] == 'admin'){
                     //Obtaining the product id
                     $the_product_id = escape($_POST['product_id']);
+            
+                    //Obtaining the ID for the image and deleting it in the directory
+                    if(!empty($the_product_id)){
+                        $query = "SELECT * FROM products WHERE product_id = '{$the_product_id}'";
+                        $result = $connection->query($query);
+
+                        while($row = mysqli_fetch_assoc($result)){
+                          $product_image_1 = $row['product_image_1'];
+                          $product_image_2 = $row['product_image_2'];
+                          $file1 = 'images/'. $product_image_1;
+                          $file2 = 'images/'. $product_image_2;
+                          unlink($file1);
+                          unlink($file2);    
+                        }
+                    }
+            
                     
                     $query = "DELETE FROM products WHERE product_id = '{$the_product_id}'";
                     $result = $connection->query($query);
@@ -145,8 +161,6 @@
             <h4 class="modal-title"></h4>
           </div>
           
-         
-              
             <div class="modal-body">
             <p>Are you sure you want to delete this product?</p>
             </div>
@@ -169,9 +183,9 @@
            
           </div>
 
-      </div>
-    </div>
-     
+       </div>
+     </div>
+    </div> 
      
      
 <?php include "footer.php"?>

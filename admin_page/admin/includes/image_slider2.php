@@ -122,11 +122,24 @@ if(isset($_POST['delete'])){
 //                if($_SESSION['user_role'] == 'admin'){
             //Obtaining the product id
             $the_slider_id = escape($_POST['product_id']);
+    
+            //Obtaining the id for the image and deleting it in the directory
+            if(!empty($the_slider_id)){
+                $query = "SELECT * FROM slider WHERE slider_id = '{$the_slider_id}'";
+                $result = $connection->query($query);
+                
+                while($row = mysqli_fetch_assoc($result)){
+                  $image_slider = $row['slider_image'];
+                  $file = 'images/'. $image_slider;
+                  unlink($file);    
+                }
+                
+            }
 
             $query = "DELETE FROM slider WHERE slider_id = '{$the_slider_id}'";
             $result = $connection->query($query);
             confirmQuery($result);
-            redirect("image_slider2.php");
+             echo "<script>window.top.location.href ='image_slider.php';</script>";
 
         }
     //}

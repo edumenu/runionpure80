@@ -126,17 +126,31 @@
 					<p><?php echo $about_content ?></p>
 					<h5 style="font-size: 0.7em">Last update: <bold><?php echo $newDate?></bold></h5>
 				</div>
-<!--
 				<div class="col-md-4 col-md-push-1 wow fadeInRight">
-					<h4>Our mission</h4>
-					<ul class="styled-list">
-						<li>1. Duis aute irure dolor </li>
-						<li>2. Excepteur sint occaecat</li>
-						<li>3. Deserunt mollit anim</li>
-						<li>4. Nostrud exercitation</li>
+				<?php
+                //Query to obatin the list of credentials in the database 
+                $query = "SELECT * FROM credentials";
+                $result = $connection->query($query);
+                confirmQuery($result);   
+                $num_rows = mysqli_num_rows($result);
+                //Checking for the number of rows in the credentials table to decide if we want to display them or not
+                if($num_rows == 0){
+                    
+                }else{
+                    
+                ?>          
+                    <h4>Credentials:</h4>
+                    <ul class="styled-list">
+                <?php
+                    while($row = mysqli_fetch_assoc($result)){
+                       $cred_list = $row['cred_list'];    
+                       echo "<li>$cred_list</li>"; 
+                    }
+                    
+                }         
+                ?>
 					</ul>
 				</div>
--->
 			</div>
 		</div>
 	</section>
