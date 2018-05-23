@@ -4474,6 +4474,7 @@ button.close, .close {
   .product-list {
     padding: 0;
     width: 100%;
+    height: auto;  
     float: left;
     margin-bottom: 30px; }
     .product-list-price {
@@ -4781,3 +4782,8 @@ button.close, .close {
 }
 
 a.disabled:link, a.disabled:visited { color: grey; }
+
+.prod{
+    width: 100% !important;
+    height: 300px !important;
+}

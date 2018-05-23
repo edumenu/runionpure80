@@ -111,7 +111,7 @@
 
         <!--Price -->
         <div class="form-group">
-          <label for="pwd">Price:</label>
+          <label for="pwd">Price(enter the price without the dollar sign):</label>
           <input type="text" class="form-control" id="price" placeholder="Enter price" name="product_price" value="<?php echo $product_price ?>">
         </div>
          <!-- /Price -->

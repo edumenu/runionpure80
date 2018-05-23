@@ -88,7 +88,7 @@
                       </td>
 
                       <td><!-- Price column-->
-                          <p class="text-center"><?php echo "$product_price"?></p>
+                          <p class="text-center">$<?php echo "$product_price"?></p>
                       </td>
 
                       <td class="text-right"><!-- Number of views column-->

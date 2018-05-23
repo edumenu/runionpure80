@@ -1,4 +1,5 @@
 <?php session_start();?>
+<?php include "test2.php"?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,42 +8,22 @@
 </head>
 <body>
 
-    
-<button id='get-data'>Click</button>
-<p id='data'></p>
-
 <?php 
-    
-    $counter = 0;
-    while($counter <= 20 ){
-
-        if($counter % 4 == 0 || $counter ==0){
-            echo "..."; 
-        }
-        echo "{$counter}";
-
-        if($counter % 4 == 0 || $counter ==0){
-            echo "..."; 
-        }
-        $counter++;
-    }
-  
+ 
+// $query = "SELECT * FROM total_view WHERE page = 'test.php'";
+ $query = "SELECT SUM(total_visit) FROM total_view WHERE page = index.php";
+ $result = $connection->query($query);
+  confirmQuery($result);
+$row = mysqli_fetch_assoc($result);
+//  $num_rows = mysqli_num_rows($result);
+ $sum = $row['SUM(total_visit)'];
+echo $sum;
 ?>    
+
+<p>This page has been viewed <?php echo "{$sum}"?> times</p>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-
-   $(document).ready(function(){
-       
-       var count = 2;
-       
-      $('#get-data').click(function(){
-         $.get('test2.php', {'key' : '56'} ,function(data){
-            $('#data').html(data);
-         });
-      });
-
-   });
 
  </script>
 </body>

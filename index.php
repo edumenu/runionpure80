@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php include "admin_page/Login/includes/db.php"?>
 <?php include "admin_page/Login/functions.php"?>
+<?php pageViewCheck('index.php');?>
 <!DOCTYPE html>
 <html lang="zxx">
 

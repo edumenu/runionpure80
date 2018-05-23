@@ -179,4 +179,52 @@ function imageCheck2($image_2, $product_id){
     return $image_2; 
 }
 
+//Funcyion to check number of views on each page
+
+ function pageViewCheck($the_current){
+ global $connection;
+     
+  //Obatining the IP address of the user
+  $userip = $_SERVER['REMOTE_ADDR'];
+  //Assigning the current page
+  $my_page = $the_current;        
+  //Increment value to increment the number of views for each IP address
+  $increment_value = 1;
+  
+  //Query to check the number of rows (IP addresses) in the page_view table
+  $check_ip = "SELECT * FROM page_view WHERE page = '$my_page' AND user_ip = '$userip'";
+  $result = $connection->query($check_ip);
+  confirmQuery($result);
+  $num_rows = mysqli_num_rows($result);
+  $row = mysqli_fetch_assoc($result);
+  $views_per_page = $row['page_views'];
+
+  if($num_rows == 1){
+      
+      if($views_per_page <= 2){
+      $update_view = "UPDATE page_view SET page_views = page_views + '$increment_value' WHERE page = '$my_page' AND user_ip = '$userip'";
+      $result = $connection->query($update_view);
+      confirmQuery($result);
+          
+      //If the number of views is less than to 3, increment it
+      $update_view = "UPDATE total_view SET total_visit = total_visit + '$increment_value' WHERE page = '$my_page'";
+      $result = $connection->query($update_view);
+      confirmQuery($result);    
+          
+      }else{
+     
+      }
+      
+      
+  }else{
+      //If the IP address doesn't exist, insert it into the table 
+      $insert_view = "INSERT INTO page_view(page, user_ip) VALUES ('{$my_page}','{$userip}')";
+       $result = $connection->query($insert_view);
+       confirmQuery($result);
+      //Update the number of views on each page 
+      $update_view = "UPDATE total_view SET total_visit = total_visit + '$increment_value' WHERE page = '$my_page'";
+       $result = $connection->query($update_view);
+       confirmQuery($result);
+  }
+ }
 ?>

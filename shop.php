@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php include "admin_page/Login/includes/db.php"?>
 <?php include "admin_page/Login/functions.php"?>
+<?php pageViewCheck('shop.php');?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -42,7 +43,6 @@
 		</div>
 	</nav>
 <!-- End of navigation-->
-	
 
     
 	<span id="items-counter" class="h3 cart-items-counter" style="display: none">0</span>
@@ -51,7 +51,6 @@
 	<a class="close" id="cart-widget-close">
 	<span class="ti-close"></span>
 	</a>
-	<img class="cart-logo" src="img/logo-black.png" width="200" alt="store logo">
 	<h3 class="section-heading">Your cart</h3>
 	<div id="cart-empty" class="cart-empty"><h4>is empty <span class="ti-face-sad icon"></span> </h4></div>
 	<!-- container for js inject cart items content -->
@@ -120,8 +119,6 @@
 				
 			</div>
 		</div>
-		
-		
 		
 		
 		<!-- PRODUCT MODAL -->
@@ -281,11 +278,6 @@
 	</div>
 <!-- End of footer -->
 
-
-
-
-	
-	
 	
 	<script src="js/vendor/wow.js"></script>
 	<script src="js/vendor/jquery-1.11.2.min.js"></script>
@@ -297,7 +289,6 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_6m6Glf1-P7jvVdHZ00e3Ue_EoUNe39g"></script>
 	<script src="js/tt-cart.js"></script>
 	<script src="js/main.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script>
 
    $(document).ready(function(){
@@ -308,7 +299,7 @@
             var id = $(this).attr("rel");  //Obtaining the name of the image selected
             var new_img = 'admin_page/admin/includes/images/';  //Image template
             var default_img = 'default.png';
-            
+            //Ajax get request to product_modal.php
              $.get('product_modal.php', {'key' : id} ,function(data,status){
                  //Checking for errors
                  if(status == '404'){
@@ -326,20 +317,11 @@
                      $('#prod_im22').attr('src',new_img + prod.product_image_2);
                      $('#prod_name').html(prod.product_name);
                      $('#product_price').html(prod.product_price);
-                     $('#prod_description').html(prod.product_description);
+                    $('#prod_description').html(prod.product_description);
                    
                  }
             });  
      });
-       
-       //Changing the images in the modal to the efault images
-//       $('.close').on('click', function(){
-//           var default_img = 'admin_page/admin/includes/images/default.png';
-//            $('#prod_im1').attr('src',default_img);
-//            $('#prod_im2').attr('src',default_img);
-//           $('input#prod_price').val() = '';
-//       });
-
 
    });
 

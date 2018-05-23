@@ -103,13 +103,13 @@
      <script>
 
    $(document).ready(function(){
-
+        //Delete modal
         $(".delete_link").on('click', function(){
 
         var id = $(this).attr("rel");  //Obtaining the post id from rel attribute
         document.getElementById('modal_delete_link').setAttribute("value",id);
      });
-
+       
    });
 
  </script>
