@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,61 +14,65 @@
 
 <?php include "../../Login/includes/db.php"?>
 <?php include "../../Login/functions.php"; ?>
-<?php
+<?php 
     
-    //Obtaing data from the form
-    if(isset($_POST['add_slider'])){
-        $slider_image = $_FILES['image']['name'];
+    if(isset($_POST['create_client'])){
+        //Obtaining the client data from the form
+        $client_name = escape($_POST['client_name']);
+        $client_image = $_FILES['image1']['name'];
         //Creating a temporary variable to contain the image
-        $slider_image_temp = $_FILES['image']['tmp_name'];
-
+        $client_image_tmp = $_FILES['image1']['tmp_name'];
+        
         //Moving the uploaded file to a new location in the directory    
-        move_uploaded_file($slider_image_temp, "images/$slider_image");
-
-        //Update query from the selected product
-        $query = "INSERT INTO slider(slider_image) VALUES ('{$slider_image}')";
-
+        move_uploaded_file($client_image_tmp, "images/transformation/$client_image");
+        
+        //Query to send data to the client table
+        $query = "INSERT INTO clients(client_name, client_image) VALUES ('{$client_name}','{$client_image}')";
+        
         //Sending query and checking for query success
         $result = $connection->query($query);
-        confirmQuery($result); 
-       }
-    
+        confirmQuery($result);
+        echo "<script>window.top.location.href ='transformation.php';</script>";
+    }  
 ?>
 
 <div class="container">
-      <!-- Form -->
-      <form action="" method="post" enctype="multipart/form-data">
-        
-        <!-- Image -->
-        <div class="form-group">
-          <table>
-           <tr>
-             <th>Slider image:</th>
-            </tr>
-           <tr>
-           <!-- Image 1 -->
-           <td>
-             <input type="file" class="form-control-file" name="image">
-           </td>
-           </tr>
-         </table>
-
-        </div>
-        <!-- /Image-->
-        
-
-        <button id="add_product" type="submit" class="btn btn-success" name="add_slider">Submit</button>
-     </form><br><br>
+  <!-- Form -->
+  <form action="" method="post" enctype="multipart/form-data">
+      
+        <!-- Product name -->
+    <div class="form-group">
+      <label for="email">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter product name" name="client_name">
+    </div>
+     <!-- /Product name -->
      
-     
-     
-<div class="table-responsive">  
+      <!-- Image -->
+    <div class="form-group">
+      <table>
+       <tr>
+         <th>Upload image</th>
+        </tr>
+       <tr>
+       <td><input type="file" class="form-control-file" name="image1"></td>
+       </tr>
+     </table>
+    </div>
+    <!-- /Image-->
+   
+    <button id="add_product" type="submit" class="btn btn-success" name="create_client">Submit</button>
+ </form>
+</div><br><br><br>
+  
+  
+  <div class="table-responsive">  
     <!-- Table for image sliders -->          
     <table class="table table-bordered">
         <thead  style="background-color: #A23AB5;color: white;">
             <tr>
 
                 <th class="text-center">Image</th>
+                <th class="text-center">Name</th>
                 <th class="text-right">Actions</th>
             </tr>
         </thead>
@@ -76,33 +81,32 @@
            <?php
 
             //Obtaining all the products from the database
-            $query = "SELECT * FROM slider";
+            $query = "SELECT * FROM clients";
             $result = $connection->query($query);
             confirmQuery($result);
             $num_rows = mysqli_num_rows($result);
 
             if($num_rows == 0){
                 //Display a notification when there are no slider images
-                echo "<div class='alert alert-danger text-center' role='alert'> There are no slider images!</div>";
+                echo "<div class='alert alert-danger text-center' role='alert'> There are transformation imgaes!</div>";
             }else{
 
             while($row = mysqli_fetch_assoc($result)) {
-              $slider_id = $row['slider_id'];
-              $slider_image = $row['slider_image'];
+              $client_id = $row['client_id'];
+              $client_name = $row['client_name'];
+              $client_image = $row['client_image'];
             ?>
             <col width="130">
            <col height="100">
             <tr>
                 <td class="col-sm">
                  <div class="img-container">
-                    <img class='img-responsive' src='images/<?php echo $slider_image?>' alt='...'>
+                    <img class='img-responsive' src='images/transformation/<?php echo $client_image?>' alt='...'>
                   </div>
                  </td>
+                 <td class="text-center"><strong><?php echo $client_name?></strong></td>
                 <td class="td-actions text-right">
-                    <button id="edit" type="button" rel="tooltip" class="btn btn-success">
-                        <i class="material-icons">Edit</i>
-                    </button>
-                    <?php echo "<a title='Delete' rel='{$slider_id}' href='javascript:void(0)' type='button' class='delete_link btn btn-danger' data-toggle='modal' data-target='#myModal' id='delete_link'><i class='material-icons'>Delete</i></a>"?>
+                    <?php echo "<a title='Delete' rel='{$client_id}' href='javascript:void(0)' type='button' class='delete_link btn btn-danger' data-toggle='modal' data-target='#myModal' id='delete_link'><i class='material-icons'>Delete</i></a>"?>
                 </td>
             </tr>
 
@@ -118,24 +122,24 @@
     //Post request to delete product
     if(isset($_POST['delete'])){
             //Obtaining the product id
-            $the_slider_id = escape($_POST['slider_id']);
+            $the_client_id = escape($_POST['client_id']);
 
             //Obtaining the id for the image and deleting it in the directory
-            if(!empty($the_slider_id)){
-                $query = "SELECT * FROM slider WHERE slider_id = '{$the_slider_id}'";
+            if(!empty($the_client_id)){
+                $query = "SELECT * FROM clients WHERE client_id = '{$the_client_id}'";
                 $result = $connection->query($query);
                 //Removing the deleted image from the image directory
                 while($row = mysqli_fetch_assoc($result)){
-                  $image_slider = $row['slider_image'];
-                  $file = 'images/'. $image_slider;
+                  $client_image = $row['client_image'];
+                  $file = 'images/transformation/'. $client_image;
                   unlink($file);    
                 } 
             }
 
-            $query = "DELETE FROM slider WHERE slider_id = '{$the_slider_id}'";
+            $query = "DELETE FROM clients WHERE client_id = '{$the_client_id}'";
             $result = $connection->query($query);
             confirmQuery($result);
-            echo "<script>window.top.location.href ='image_slider.php';</script>";
+            echo "<script>window.top.location.href ='transformation.php';</script>";
 
         }
   ?>             
@@ -152,7 +156,7 @@
           </div>
              
             <div class="modal-body">
-            <p>Are you sure you want to delete this product?</p>
+            <p>Are you sure you want to delete this client?</p>
             </div>
              
           <div class="modal-footer"> 
@@ -161,7 +165,7 @@
               
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-                <input id='modal_delete_link' type="hidden" name="slider_id" value=""/>
+                <input id='modal_delete_link' type="hidden" name="client_id" value=""/>
 
                 <button name="delete" value="Delete" type="submit" class="btn btn-danger">Delete</button>
               
@@ -172,8 +176,7 @@
         </div>
      </div>                            
     </div>
-   
-    </div>
+
 
    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
    <!-- Toastr.js -->
@@ -192,6 +195,10 @@
    });
 
  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <!-- Toastr.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
  
 
 </body>

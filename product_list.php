@@ -19,11 +19,7 @@
                         <span class='product-list-price'>No price</span>
 
                     </span>
-                </a>
-
-                <button class='btn btn-default add-item' type='button' data-image='img/product.png' data-name='Textile classic grey chair' data-cost='400.00' data-id='1'>
-                    <span class='ti-shopping-cart'></span>add to cart
-                </button> 		
+                </a>		
              </li>
              </ul>";
         }else{
@@ -50,11 +46,9 @@
                     <span class='product-list-right pull-left'>
                         <span class='product-list-name h4 black-color'>{$product_name}</span>
                         <span class='product-list-price'>\${$product_price}</span>
-
                     </span>
                 </a>
-
-                <button class='btn btn-default add-item' type='button' data-image='admin_page/admin/includes/images/{$product_image_1}' data-name='{$product_name}' data-cost='$product_price' data-id='1'>
+                <button class='btn btn-default add-item' type='button' data-image='admin_page/admin/includes/images/{$product_image_1}' data-name='{$product_name}' data-cost='$product_price' data-id='$product_id'>
                     <span class='ti-shopping-cart'></span>add to cart
                 </button> 		
              </li>"; 

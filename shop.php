@@ -35,7 +35,6 @@
 				<ul class="nav navbar-nav">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="#products">products</a></li>
-					<li><a href="#special">special</a></li>
 					<li><a href="#contact">contact</a></li>
 					<li><a href="admin_page/Login/index.php">Admin</a></li>
 				</ul>
@@ -61,8 +60,8 @@
 	<div class="cart-delivery" id="cart-delivery">
 	<h4 class="section-heading">Delivery option</h4>
 		<div class="custom-radio">
-			<input id="radio1" type="radio" name="delivery" value="10.00" checked> 
-			<label for="radio1">domestic delivery ($10)</label>
+			<input id="radio1" type="radio" name="delivery" value="0.00" checked> 
+			<label for="radio1">domestic delivery ($0)</label>
 		</div>
 
 		<div class="custom-radio">
@@ -79,11 +78,11 @@
 
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="cart-form" id="cart-form">
 		<!-- Identify your business so that you can collect the payments. -->
-		<input type="hidden" name="business" value="yourpaypal@email.com">
+		<input type="hidden" name="business" value="swiftdume@gmail.com">
 		<!-- Specify a Buy Now button. -->
 		<input type="hidden" name="cmd" value="_xclick">
 		<!-- Specify details about the item that buyers will purchase. -->
-		<input type="hidden" name="item_name" value="Interio store - checkout">
+		<input type="hidden" name="item_name" value="Runionpure80 - checkout">
 		<input type="hidden" name="amount" id="amount" value="">
 		<input type="hidden" name="currency_code" value="USD">
 		<!-- Display the payment button. -->
@@ -157,7 +156,7 @@
 										<div class="col-md-4">
 											<span class="product-right-section">
 												<span id="product_price">$299.00</span>
-												<button class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair" data-cost="299.00" data-id="8">
+												<button id="prod_button" class="btn btn-default add-item" type="button" data-image="img/product.png" data-name="Textile classic grey chair" data-cost="299.00" data-id="8">
 												<span class="ti-shopping-cart"></span>add to cart </button>
 											</span>
 										</div>
@@ -312,11 +311,17 @@
 
                      //Dynamically changing the image src's
                      $('#prod_im11').attr('src',new_img + prod.product_image_1);
+                     //Image for the modal 'add to cart' button
+                     $('#prod_button').attr('data-image',new_img + prod.product_image_1);
                      $('#prod_im12').attr('src',new_img + prod.product_image_2);
                      $('#prod_im21').attr('src',new_img + prod.product_image_1);
                      $('#prod_im22').attr('src',new_img + prod.product_image_2);
                      $('#prod_name').html(prod.product_name);
-                     $('#product_price').html(prod.product_price);
+                     //Name of modal 'add to cart' button
+                     $('#prod_button').attr('data-name',prod.product_name);
+                     $('#product_price').html('$' + prod.product_price);
+                     //Price for the 'add to cart' button
+                     $('#prod_button').attr('data-cost',prod.product_price);
                     $('#prod_description').html(prod.product_description);
                    
                  }

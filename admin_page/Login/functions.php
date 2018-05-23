@@ -202,6 +202,7 @@ function imageCheck2($image_2, $product_id){
   if($num_rows == 1){
       
       if($views_per_page <= 2){
+      //Update the number page views in the page_view table to a maximum of 3       
       $update_view = "UPDATE page_view SET page_views = page_views + '$increment_value' WHERE page = '$my_page' AND user_ip = '$userip'";
       $result = $connection->query($update_view);
       confirmQuery($result);
@@ -214,7 +215,6 @@ function imageCheck2($image_2, $product_id){
       }else{
      
       }
-      
       
   }else{
       //If the IP address doesn't exist, insert it into the table 

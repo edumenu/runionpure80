@@ -26,8 +26,6 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				
-<!--				<a class="navbar-brand" href="#" style="color:black"> Home </a>-->
 			</div>
 			<div class="collapse navbar-collapse navbar-right" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -40,10 +38,7 @@
 				</ul>
 			</div>
 		</div>
-	</nav>
-	
-	
-	
+    </nav>
 	
 <!--Slider-->
 	<section class="home section image-slider" id="home">
@@ -70,32 +65,12 @@
 					<h2 class="home-slider-title-main" style="position: absolute; bottom: 0; text-align: center; width: 100%;">Richard Lee Runion</h2>
 				</div>
 				<?php } ?>
-
-<!--
-				<div class="swiper-slide" style="background: url(img/slider/lee2.jpg);">
-					<h2 class="home-slider-title-main">Richard Lee Runion</h2>
-					<a class="arrow bounce text-center" href="#about"> <span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
-				</div>
-                
-                <div class="swiper-slide" style="background: url(img/slider/lee5.jpg);">
-					<h2 class="home-slider-title-main" style="position: absolute; bottom: 0; text-align: center; width: 100%;">Richard Lee Runion</h2>
-					<a class="arrow bounce text-center" href="#about"> <span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
-				</div>
-				
-				<div class="swiper-slide" style="background: url(img/slider/lee6.jpg);">
-					<h2 class="home-slider-title-main">Richard Lee Runion</h2>
-					<a class="arrow bounce text-center" href="#about"> <span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
-				</div>
--->
-
 			</div>
 			<div class="home-pagination"></div>
 			<div class="home-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>
 			<div class="home-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>
 		</div>
 	</section>
-	
-	
 	
 <?php
     
@@ -204,6 +179,40 @@
 	</section>
 <!--End of Testimonial-->
 
+<!--Transformation-->
+	<section class="" id="">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-heading black-color">Transformations</h3>
+				</div>
+				<div class="testimonials-slider text-center">
+					<div class="swiper-wrapper">
+					   <?php 
+                        
+                        $query = "SELECT * FROM clients";
+                        $result = $connection->query($query);
+                        confirmQuery($result);
+                        
+                        while($row = mysqli_fetch_assoc($result)){
+                           $client_name = $row['client_name'];
+                           $client_image = $row['client_image'];
+                        ?>
+						<div class="swiper-slide">
+							<h3 class="wow fadeInUp" data-wow-delay=".4s" style="margin-bottom: 80px;"><?php echo $client_name?> </h3>
+								<img id='responsive_img' src="admin_page/admin/includes/images/transformation/<?php echo $client_image?>" alt="">
+						</div>
+						<?php } ?>
+					</div>
+					<div class="testimonials-pagination"></div>
+					<div class="testimonials-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>
+					<div class="testimonials-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!--End of Transformation-->
+
 
 
 
@@ -299,7 +308,6 @@
 		</footer>
 	</div>
 <!-- End of footer -->
-    
     
     
 	<script src="js/vendor/wow.js"></script>

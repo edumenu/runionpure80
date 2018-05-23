@@ -31,7 +31,7 @@ Tip 2: you can also add an image using data-image tag
             <li class="nav-item ">
                 <a class="nav-link" href="../includes/about.php">
                     <i class="material-icons">event_note</i>
-                    <p>About section</p>
+                    <p>About/Credentials section</p>
                 </a>
             </li>
                
@@ -39,6 +39,13 @@ Tip 2: you can also add an image using data-image tag
                 <a class="nav-link" href="../includes/testimonial.php">
                     <i class="material-icons">speaker_notes</i>
                     <p>Testimonial Section</p>
+                </a>
+            </li>
+               
+            <li class="nav-item ">
+                <a class="nav-link" href="../includes/transformation.php">
+                    <i class="material-icons">transform</i>
+                    <p>Transformation Section</p>
                 </a>
             </li>
 

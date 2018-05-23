@@ -4300,7 +4300,7 @@ button.close, .close {
       .testimonials-slider {
         padding: 0 15px; } }
     .testimonials-slider img {
-      border-radius: 100px;
+/*      border-radius: 100px;*/
       margin-top: -55px;
       width: 80px;
       height: 80px;
@@ -4777,8 +4777,9 @@ button.close, .close {
 
 /* Custom css  */
 #responsive_img {
-    width: 100%;
-    height: auto;
+    width: 30% !important;
+    height: auto !important;
+    margin-bottom: auto;
 }
 
 a.disabled:link, a.disabled:visited { color: grey; }

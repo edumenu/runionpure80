@@ -42,7 +42,7 @@
          
          <div class="card card-nav-tabs text-center">
            <div class="card-header card-header-primary">
-            Edit the about section
+            Edit the about/credentials sections
            </div>
           <div class="card-body">
            
@@ -54,7 +54,7 @@
               </div>
               
             <div class="form-group">
-              <button class="btn btn-primary" type="submit" name="update_about" value="Update About Content" id="update_success">Update About</button>
+              <button class="btn btn-primary" type="submit" name="update_about" value="Update About Content" id="update_success">Update About</button><br><br><br><br>
             </div>
                         
             </form>

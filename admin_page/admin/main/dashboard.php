@@ -34,7 +34,7 @@
                                 <i class="material-icons">home</i>
                             </div>
                             <p class="card-category">Home page Views</p>
-                            <h3 id="home_views" class="card-title home_views">400</h3>
+                            <h3 id="home_views" class="card-title home_views">0</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -54,7 +54,7 @@
                                 <i class="material-icons">store</i>
                             </div>
                             <p class="card-category">Shop page views</p>
-                            <h3 id="shop_views" class="card-title shop_views">45</h3>
+                            <h3 id="shop_views" class="card-title shop_views">0</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
