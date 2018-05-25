@@ -37,4 +37,4 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
    
 </head>
 
-<body>
+<body onload="myFunction()">

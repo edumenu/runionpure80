@@ -34,7 +34,7 @@
 					<li><a href="#testimonials">testimonials</a></li>
 					<li><a href="#contact">contact</a></li>
 					<li><a href="shop.php">Shop</a></li>
-					<li><a href="admin_page/admin/main/dashboard.php">Admin</a></li>
+					<li><a href="admin_page/Login/index.php">Admin</a></li>
 				</ul>
 			</div>
 		</div>

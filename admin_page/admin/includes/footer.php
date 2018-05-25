@@ -97,8 +97,7 @@
         toastr.success('update successfully', {timeOut: 500}, {"positionClass": "toast-bottom-right"});
         localStorage.clear();
     }
-       
-       
+        
       //Delete modal
         $(".delete_link").on('click', function(){
 
@@ -106,17 +105,30 @@
         document.getElementById('modal_delete_link').setAttribute("value",id);
      });  
        
-    //Loading screen for the main page   
+//    //Loading screen for the main page   
+//    var div_box = "<div id='loading'></div>";
+//     //Adding/appending the load screen to the body of the page   
+//     $("#loader").prepend(div_box);
+//     //Remove loading screen after 7 miliseconds   
+//     $('#loading').delay(700).fadeOut(600, function(){
+//        $(this).remove(); 
+//     });   
+       
+       
+   });
+        
+        
+    function myFunction(){
+         //Loading screen for the main page   
     var div_box = "<div id='loading'></div>";
      //Adding/appending the load screen to the body of the page   
      $("#loader").prepend(div_box);
      //Remove loading screen after 7 miliseconds   
-     $('#loading').delay(700).fadeOut(600, function(){
+     $('#loading').delay(10).fadeOut(600, function(){
         $(this).remove(); 
-     });   
-       
-       
-   });     
+     });  
+    }
+        
     </script>
 
 </html>
