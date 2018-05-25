@@ -34,7 +34,7 @@
 					<li><a href="#testimonials">testimonials</a></li>
 					<li><a href="#contact">contact</a></li>
 					<li><a href="shop.php">Shop</a></li>
-					<li><a href="admin_page/Login/index.php">Admin</a></li>
+					<li><a href="admin_page/admin/main/dashboard.php">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -193,6 +193,11 @@
                         $query = "SELECT * FROM clients";
                         $result = $connection->query($query);
                         confirmQuery($result);
+                        $num = mysqli_num_rows($result);
+                                    
+                        if($num == 0){
+                            echo "<h1>There are no images</h1>";
+                        }else{            
                         
                         while($row = mysqli_fetch_assoc($result)){
                            $client_name = $row['client_name'];
@@ -202,7 +207,7 @@
 							<h3 class="wow fadeInUp" data-wow-delay=".4s" style="margin-bottom: 80px;"><?php echo $client_name?> </h3>
 								<img id='responsive_img' src="admin_page/admin/includes/images/transformation/<?php echo $client_image?>" alt="">
 						</div>
-						<?php } ?>
+						<?php } } ?>
 					</div>
 					<div class="testimonials-pagination"></div>
 					<div class="testimonials-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>

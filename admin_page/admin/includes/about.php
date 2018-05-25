@@ -38,11 +38,11 @@
        <?php include "../includes/topnav.php"?>
        <!-- /Top navbar -->
           
-         <div class="alert alert-success" role="alert"><h1>About</h1></div> 
+         <div class="alert alert-success" role="alert"><h1>About/Credentials</h1></div> 
          
          <div class="card card-nav-tabs text-center">
            <div class="card-header card-header-primary">
-            Edit the about/credentials sections
+           Use this section to edit the about and credentials sections 
            </div>
           <div class="card-body">
            

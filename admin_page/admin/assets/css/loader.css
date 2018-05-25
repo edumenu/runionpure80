@@ -1,0 +1,14 @@
+
+#loading {
+width: 200px;
+height: 100px;
+margin: 10% auto;
+background: url(../../includes/images/loader.gif);
+background-size: 40%;
+background-repeat: no-repeat;
+background-position: center;
+z-index: 10000; 
+position: absolute;
+margin-left: 230%;    
+}
+

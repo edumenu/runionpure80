@@ -17,7 +17,7 @@
         
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title">Add content to the transformation section</h4>
+                <h4 class="card-title">Use this page to add content to the transformation section</h4>
             </div>
             <div class="card-body">
                 <div class="embed-responsive embed-responsive-4by3">

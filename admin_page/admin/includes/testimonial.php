@@ -45,7 +45,7 @@
          
          <div class="card card-nav-tabs text-center">
               <div class="card-header card-header-primary">
-               Edit the testimonial section
+               Use this section to edit the testimonial section
               </div>
               <div class="card-body">
 

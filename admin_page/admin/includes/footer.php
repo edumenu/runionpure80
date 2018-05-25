@@ -97,21 +97,26 @@
         toastr.success('update successfully', {timeOut: 500}, {"positionClass": "toast-bottom-right"});
         localStorage.clear();
     }
-   });     
-    </script>
-        
-     <script>
-
-   $(document).ready(function(){
-        //Delete modal
+       
+       
+      //Delete modal
         $(".delete_link").on('click', function(){
 
         var id = $(this).attr("rel");  //Obtaining the post id from rel attribute
         document.getElementById('modal_delete_link').setAttribute("value",id);
-     });
+     });  
        
-   });
-
- </script>
+    //Loading screen for the main page   
+    var div_box = "<div id='loading'></div>";
+     //Adding/appending the load screen to the body of the page   
+     $("#loader").prepend(div_box);
+     //Remove loading screen after 7 miliseconds   
+     $('#loading').delay(700).fadeOut(600, function(){
+        $(this).remove(); 
+     });   
+       
+       
+   });     
+    </script>
 
 </html>
