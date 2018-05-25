@@ -1,4 +1,5 @@
 <?php include "admin_page/Login/includes/db.php"?>
+<?php include "admin_page/Login/functions.php"?>
 <?php
     
     // ********** This file makes a get request to retrieve products in the database ***********
@@ -6,7 +7,9 @@
     if(isset($_GET['key'])){    //Detecting to see if a get request was made
         
     //Storing the product_id obtained when the product image was selected    
-    $the_product_id = $_GET['key'];     
+    $the_product_id = $_GET['key'];
+    //Increment value of 1
+    $increment_value = 1;    
      //Obtaining all the products from the database
     $query = "SELECT * FROM products WHERE product_id = $the_product_id";
     $result = $connection->query($query);
@@ -35,6 +38,12 @@
       //COnverting the associated array into a JSON string    
       echo json_encode($product);
         } 
+        
+    $query_update = "UPDATE products SET product_views = product_views + '$increment_value' WHERE product_id = $the_product_id";
+    $result_update = $connection->query($query_update);    
+    confirmQuery($result_update);    
+        
+        
     }
         
     }

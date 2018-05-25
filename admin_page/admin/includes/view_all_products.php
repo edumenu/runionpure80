@@ -92,7 +92,7 @@
                       </td>
 
                       <td class="text-right"><!-- Number of views column-->
-                         <button type="button" rel="tooltip" class="btn btn-info btn-sm">
+                         <button name="reset" title='Reset number of views' type="button" rel="<?php echo $product_id?>" class="reset_link btn btn-info btn-sm" data-toggle='modal' data-target='#resetModal'>
                             <i class="material-icons">pageview</i><?php echo "   $product_views"?>
                         </button>
                       </td>
@@ -137,6 +137,24 @@
         confirmQuery($result);
         redirect("view_all_products.php");
     }
+        
+    //Post request to delete product
+    if(isset($_POST['reset'])){
+        //Obtaining the product id
+        $the_reset_id = escape($_POST['reset_id']);
+        $view_count = 0;
+
+        //Obtaining the ID for the image and deleting it in the directory
+        if(!empty($the_reset_id)){
+            $query = "UPDATE products SET product_views = '$view_count' WHERE product_id = '{$the_reset_id}'";
+            $result = $connection->query($query);
+        }
+
+        $query = "DELETE FROM products WHERE product_id = '{$the_product_id}'";
+        $result = $connection->query($query);
+        confirmQuery($result);
+        redirect("view_all_products.php");
+    }
  ?>   
      
          <!-- Modal -->
@@ -164,6 +182,39 @@
                 <input id='modal_delete_link' type="hidden" name="product_id" value=""/>
 
                 <button name="delete" value="Delete" type="submit" class="btn btn-danger">Delete</button>
+              
+             </form>
+           
+          </div>
+       </div>
+     </div>
+    </div>
+    
+      <!-- Modal -->
+    <div id="resetModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"></h4>
+          </div>
+          
+            <div class="modal-body">
+            <p>Do you want to reset the number of views on this product?</p>
+            </div>
+             
+     
+          <div class="modal-footer">
+            
+             <form action="" method="post">
+             
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                <input id='modal_reset_link' type="hidden" name="reset_id" value=""/>
+
+                <button name="reset" value="Reset" type="submit" class="btn btn-info">reset</button>
               
              </form>
            

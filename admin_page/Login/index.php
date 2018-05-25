@@ -33,11 +33,6 @@
 					</div>
 
 					<div class="text-center p-t-115">
-<!--
-						<a href="#">
-							Forgotten your password?
-						</a>
--->
 						<br>
 						<a href="registration.php" class="btn btn-success">
 							Register

@@ -323,9 +323,12 @@
                      //Price for the 'add to cart' button
                      $('#prod_button').attr('data-cost',prod.product_price);
                     $('#prod_description').html(prod.product_description);
+                    //Price for the 'add to cart' button
+                    $('#prod_button').attr('data-id',prod.product_id); 
                    
                  }
             });  
+            
      });
 
    });
