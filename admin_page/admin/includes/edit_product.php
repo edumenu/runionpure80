@@ -27,7 +27,6 @@
                 if(!isset($_GET['p_id'])){
                   echo "<div class='alert alert-danger' role='alert' style='margin-bottom: 100px'> No product was selected</div>";  
                 }
-                
                 ?>
                 <div class="embed-responsive embed-responsive-4by3">
                  <!-- An iframe for add_product2 page -->

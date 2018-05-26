@@ -31,9 +31,9 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     
     <!-- Documentation extras -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
-<!--    <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />-->
+    <!-- <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />-->
       <!-- Toastr.js -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
    
 </head>
 

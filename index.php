@@ -18,6 +18,7 @@
 </head>
 
 <body data-offset="50" data-spy="scroll" data-target=".navbar" class="dark-theme">
+    <!-- Top navigation -->
 	<nav class="navbar navbar-fixed-top shadow" id="js-nav">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -39,19 +40,20 @@
 			</div>
 		</div>
     </nav>
+     <!-- /Top navigation -->
 	
 <!--Slider-->
 	<section class="home section image-slider" id="home">
 		<div class="home-slider text-center">
 			<div class="swiper-wrapper">
                 <?php
-                //Obtaining the about content already in the database
+                //Obtaining data from the slider table
                 $query = "SELECT * FROM slider";
                 $result = $connection->query($query);
                 confirmQuery($result);  
 
                 while($row = mysqli_fetch_assoc($result)) {
-                  //Storing the about content into a variable 
+                  //Storing the slider content  
                   $slider_id = $row['slider_id'];
                   $slider_image = $row['slider_image']; 
 
@@ -80,6 +82,7 @@
       $about_content = $row['about_content'];
       $about_date = $row['about_date'];
     }        
+    //Outputting a date format
     $newDate = date("m-d-Y", strtotime($about_date));
 ?>	
 
@@ -98,25 +101,26 @@
 				</div>
 				<div class="col-md-4 col-md-push-1 wow fadeInRight">
 				<?php
-                //Query to obatin the list of credentials in the database 
+                //Query to obatin data for the creddentials section
                 $query = "SELECT * FROM credentials";
                 $result = $connection->query($query);
                 confirmQuery($result);   
                 $num_rows = mysqli_num_rows($result);
                 //Checking for the number of rows in the credentials table to decide if we want to display them or not
                 if($num_rows == 0){
-                    
+                    //Do nothing if there are not credentials
                 }else{
-                    
-                ?>          
+                ?>    
+                   <!-- Credentials header -->      
                     <h4>Credentials:</h4>
                     <ul class="styled-list">
                 <?php
+                    //Displaying credentials onto the page
                     while($row = mysqli_fetch_assoc($result)){
                        $cred_list = $row['cred_list'];    
                        echo "<li>$cred_list</li>"; 
-                    }
-                }         
+                      }
+                   }         
                 ?>
 					</ul>
 				</div>
@@ -127,13 +131,13 @@
 	
 <?php
     
-    //Obtaining the about content already in the database
+    //Obtaining data for the testimonial section
     $query = "SELECT * FROM testimonial";
     $result = $connection->query($query);
     confirmQuery($result);  
 
     while($row = mysqli_fetch_assoc($result)) {
-      //Storing the about content into a variable 
+      //Storing the testimonial content into a variable 
       $test_content = $row['test_content'];
       $test_date = $row['test_date'];
       $test_title = $row['test_title'];
@@ -169,95 +173,111 @@
 <!--End of Testimonial-->
 
 <!--Transformation-->
-	<section class="transformation" id="transformation">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="section-heading black-color">Transformations</h3>
-				</div>
-				<div class="transformation-slider text-center">
-					<div class="swiper-wrapper">
-					   <?php 
-                        
-                        $query = "SELECT * FROM clients";
-                        $result = $connection->query($query);
-                        confirmQuery($result);
-                        $num = mysqli_num_rows($result);
-                                    
-                        if($num == 0){
-                            echo "<h1>There are no images</h1>";
-                        }else{            
-                        
-                        while($row = mysqli_fetch_assoc($result)){
-                           $client_name = $row['client_name'];
-                           $client_image = $row['client_image'];
-                        ?>
-						<div class="swiper-slide">
-							<h3 class="wow fadeInUp" data-wow-delay=".6s" style="margin-bottom: 10px;"><?php echo $client_name?> </h3>
-								<img id='responsive_img' src="admin_page/admin/includes/images/transformation/<?php echo $client_image?>" alt="">
-						</div>
-						<?php } } ?>
-					</div>
-					<div class="transformation-pagination"></div>
+<section class="transformation" id="transformation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="section-heading black-color">Transformations</h3>
+            </div>
+            <div class="transformation-slider text-center">
+                <div class="swiper-wrapper">
+                   <?php 
+                    //Query to obtain data for the clients section
+                    $query = "SELECT * FROM clients";
+                    $result = $connection->query($query);
+                    confirmQuery($result);
+                    $num = mysqli_num_rows($result);
+
+                    if($num == 0){
+                        echo "<h1>There are no images</h1>";
+                    }else{            
+
+                    while($row = mysqli_fetch_assoc($result)){
+                       $client_name = $row['client_name'];
+                       $client_image = $row['client_image'];
+                    ?>
+                    <div class="swiper-slide">
+                        <h3 class="wow fadeInUp" data-wow-delay=".6s" style="margin-bottom: 10px;"><?php echo $client_name?> </h3>
+                            <img id='responsive_img' src="admin_page/admin/includes/images/transformation/<?php echo $client_image?>" alt="">
+                    </div>
+                    <?php } } ?>
+                </div>
+                <div class="transformation-pagination"></div>
 <!--					<div class="testimonials-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>-->
 <!--					<div class="testimonials-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>-->
-				</div>
-			</div>
-		</div>
-	</section>
+            </div>
+        </div>
+    </div>
+</section>
 <!--End of Transformation-->
 
+<?php
+
+if(isset($_POST['submit'])){
+    
+ $to = "ehdemdume@gmail.com";    //Sender's email
+ $subject = wordwrap($_POST['subject'], 70); //Wordrap wraps a string into another line when it reaches a specific length
+ $body = $_POST['body'];  //Body of the email
+ $header =  $_POST['contact-email'];
+    
+ // send email
+mail($to,$subject,$body,$header);
+    
+}    
+    
+?>
+
 <!-- Contact -->
+<section id="contact" class="contact contact-with-map">
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-heading">contact</h3>
+        </div>
+        <div class="col-md-3">
+            <div class="contact-data">
+                <ul>
+                    <li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
+                    <li><span class="ti-email icon"></span>lee_runion@aol.com</li>
+                    <li><span class="ti-skype icon"></span>@lee</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-push-1">
+         <div class="contact-form">
+            <form action="" method="post" autocomplete="on">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                </div>
 
-	<section id="contact" class="contact contact-with-map">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="section-heading">contact</h3>
-				</div>
-				<div class="col-md-3">
-					<div class="contact-data">
-						<ul>
-							<li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
-							<li><span class="ti-email icon"></span>lee_runion@aol.com</li>
-							<li><span class="ti-skype icon"></span>@lee</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-8 col-md-push-1">
-					<div class="contact-form">
-						<form>
-							<div class="form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-							</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="contact-email" name="contact-email" placeholder="Email" required>
+                </div>
 
-							<div class="form-group">
-								<input type="text" class="form-control" id="contact-email" name="contact-email" placeholder="Email" required>
-							</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+                </div>
 
-							<div class="form-group">
-								<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
-							</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                </div>
 
-							<div class="form-group">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-							</div>
+                <div class="form-group">
+                    <textarea class="form-control" id="body" name="body" placeholder="Enter Message" maxlength="140" rows="7"></textarea>
+                </div>
 
-							<div class="form-group">
-								<textarea class="form-control" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
-							</div>
+                <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
+            </form>
+         </div>
+        </div>
+    </div>
+</div>
 
-							<button type="button" id="submit" name="submit" class="btn btn-primary btn-lg text-center float-right">Submit your message</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="google-maps">
-			<div id="map-canvas"></div>
-		</div>
-	</section>
+    <!-- Maps -->
+    <div class="google-maps">
+        <div id="map-canvas"></div>
+    </div>
+</section>
 <!-- End of Contact-->
 	
 	

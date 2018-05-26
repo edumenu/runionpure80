@@ -14,20 +14,14 @@ Tip 2: you can also add an image using data-image tag
     
     <div class="sidebar-wrapper">
         <ul class="nav">
-           
            <!-- Adding the active links to the side navigation -->
             <?php 
-            
-            global $connection;
-     
              $currentName = basename($_SERVER['PHP_SELF']);
-
             if($currentName == 'dashboard.php'){
               echo "<li class='nav-item active'>";
             }else{
                 echo "<li class='nav-item'>";
             }
-            
             ?>
                 <a class="nav-link" href="../main/dashboard">
                     <i class="material-icons">dashboard</i>
@@ -36,11 +30,7 @@ Tip 2: you can also add an image using data-image tag
             </li>
             
             <?php 
-            
-            global $connection;
-     
              $currentName = basename($_SERVER['PHP_SELF']);
-
             if($currentName == 'image_slider.php'){
               echo "<li class='nav-item active'>";
             }else{
@@ -55,11 +45,7 @@ Tip 2: you can also add an image using data-image tag
             </li> 
                
             <?php 
-
-             global $connection;
-
              $currentName = basename($_SERVER['PHP_SELF']);
-
              if($currentName == 'about.php'){
                echo "<li class='nav-item active'>";
              }else{
@@ -74,11 +60,7 @@ Tip 2: you can also add an image using data-image tag
             </li>
                
             <?php 
-            
-            global $connection;
-     
              $currentName = basename($_SERVER['PHP_SELF']);
-
             if($currentName == 'testimonial.php'){
               echo "<li class='nav-item active'>";
             }else{
@@ -93,11 +75,7 @@ Tip 2: you can also add an image using data-image tag
             </li>
                
             <?php 
-            
-            global $connection;
-     
              $currentName = basename($_SERVER['PHP_SELF']);
-
             if($currentName == 'transformation.php'){
               echo "<li class='nav-item active'>";
             }else{
@@ -112,17 +90,12 @@ Tip 2: you can also add an image using data-image tag
             </li>
 
               <?php 
-            
-            global $connection;
-     
              $currentName = basename($_SERVER['PHP_SELF']);
-
             if($currentName == 'view_all_products.php' || $currentName == 'add_product.php' ){
               echo "<li class='nav-item dropdown active'>";
             }else{
                 echo "<li class='nav-item dropdown'>";
             }
-            
             ?>
               <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <i class="material-icons">shop</i>

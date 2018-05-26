@@ -1,5 +1,5 @@
-<?php include "admin_page/Login/includes/db.php"?>
-<?php include "admin_page/Login/functions.php"?>
+<?php include "../admin_page/Login/includes/db.php"?>
+<?php include "../admin_page/Login/functions.php"?>
 <?php
     
     // ********** This file makes a get request to retrieve products in the database ***********

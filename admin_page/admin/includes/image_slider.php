@@ -16,22 +16,21 @@
   <!-- Page Header -->          
  <div class="alert alert-success" role="alert"><h1>Slider</h1></div> 
         
-        <div class="card">
-            <div class="card-header card-header-primary">
-                <h4 class="card-title">Add or delete images for the image slider on the home page</h4>
-            </div>
-            
-            <div class="card-body">
-                <div class="embed-responsive embed-responsive-4by3">
-                 <!-- An iframe for image_slider2 page -->
-                 <?php     
-                    //Displaying the iframe for image_slider2
-                   echo " <iframe class='embed-responsive-item' src='image_slider2.php?>' allowfullscreen></iframe>"; 
-                    ?>
-                </div>
-            </div>
-            
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title">Add or delete images for the image slider on the home page</h4>
         </div>
+
+        <div class="card-body">
+            <div class="embed-responsive embed-responsive-4by3">
+             <!-- An iframe for image_slider2 page -->
+             <?php     
+                //Displaying the iframe for image_slider2
+               echo " <iframe class='embed-responsive-item' src='image_slider2.php?>' allowfullscreen></iframe>"; 
+                ?>
+            </div>
+        </div>
+    </div>
          
      
 <?php include "footer.php"?>

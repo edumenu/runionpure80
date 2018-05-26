@@ -9,18 +9,15 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
-
-              <li class="nav-item dropdown">
+               <li class="nav-item dropdown">
                     <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">person</i>
-                        
                         <?php
                         if($_SESSION['user_role'] == 'admin' ){
                           echo $_SESSION['firstname']; echo $_SESSION['lastname'];   
                         }else{
                             header("Location: ../../Login/index");
                         }
-                        
                         ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" data-color="green">
@@ -29,14 +26,13 @@
                         <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Sign out</a>
                     </div>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
 <!-- /Navbar -->
 
-  <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

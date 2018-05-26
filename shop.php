@@ -28,8 +28,6 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				
-<!--				<a class="navbar-brand" href="#" style="color: black"> Home </a>-->
 			</div>
 			<div class="collapse navbar-collapse navbar-right" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -104,8 +102,8 @@
 				<div class="col-md-12">
 					<div class="product-list-slider">
 					
-					   <!-- Displaying the images from the database -->
-					   <?php include "product_list.php"?>
+					   <!-- Displaying the images onto the shop page from the database -->
+					   <?php include "includes/product_list.php"?>
 					
 						<!-- Add Pagination -->
 						<div class="product-list-pagination text-center"> </div>
@@ -114,11 +112,8 @@
 					</div>
 				</div>
 			<!-- Second row -->
-				
-				
 			</div>
 		</div>
-		
 		
 		<!-- PRODUCT MODAL -->
 		<div class="modal fade product-modal" id="product-01" role="dialog" tabindex="-1">
@@ -143,13 +138,11 @@
 							</ol>
 						</div>
 						
-						
 						<!-- Wrapper for slides -->
 						<div class="container">
 							<div class="row">
 								<div class="col-md-8 col-md-push-2">
 									<div class="row">
-									
 										<div class="col-md-8">
 											<h3 id="prod_name" class="pull-left section-heading">Name of product</h3>
 										</div>
@@ -160,7 +153,6 @@
 												<span class="ti-shopping-cart"></span>add to cart </button>
 											</span>
 										</div>
-										
 									</div>
 								</div>
 								<div class="col-md-8 col-md-push-2 product-description">
@@ -189,54 +181,73 @@
 		<!-- / PRODUCT MODAL -->
 	</section>
 
+<?php
+
+if(isset($_POST['submit'])){
+    
+ $to = "ehdemdume@gmail.com";    //Sender's email
+ $subject = wordwrap($_POST['subject'], 70); //Wordrap wraps a string into another line when it reaches a specific length
+ $body = $_POST['body'];  //Body of the email
+ $header =  $_POST['contact-email'];
+    
+ // send email
+mail($to,$subject,$body,$header);
+    
+}    
+    
+?>
+
 <!-- Contact -->
+<section id="contact" class="contact contact-with-map">
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="section-heading">contact</h3>
+        </div>
+        <div class="col-md-3">
+            <div class="contact-data">
+                <ul>
+                    <li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
+                    <li><span class="ti-email icon"></span>lee_runion@aol.com</li>
+                    <li><span class="ti-skype icon"></span>@lee</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-push-1">
+         <div class="contact-form">
+            <form action="" method="post" autocomplete="on">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                </div>
 
-	<section id="contact" class="contact contact-with-map">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="section-heading">contact</h3>
-				</div>
-				<div class="col-md-3">
-					<div class="contact-data">
-						<ul>
-							<li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
-							<li><span class="ti-email icon"></span>lee_runion@aol.com</li>
-							<li><span class="ti-skype icon"></span>@lee</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-8 col-md-push-1">
-					<div class="contact-form">
-						<form>
-							<div class="form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-							</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="contact-email" name="contact-email" placeholder="Email" required>
+                </div>
 
-							<div class="form-group">
-								<input type="text" class="form-control" id="contact-email" name="contact-email" placeholder="Email" required>
-							</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+                </div>
 
-							<div class="form-group">
-								<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
-							</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                </div>
 
-							<div class="form-group">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-							</div>
+                <div class="form-group">
+                    <textarea class="form-control" id="body" name="body" placeholder="Enter Message" maxlength="140" rows="7"></textarea>
+                </div>
 
-							<div class="form-group">
-								<textarea class="form-control" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
-							</div>
+                <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
+            </form>
+         </div>
+        </div>
+    </div>
+</div>
 
-							<button type="button" id="submit" name="submit" class="btn btn-primary btn-lg text-center float-right">Submit your message</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</section>
+    <!-- Maps -->
+    <div class="google-maps">
+        <div id="map-canvas"></div>
+    </div>
+</section>
 <!-- End of Contact-->
 	
 
@@ -287,52 +298,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_6m6Glf1-P7jvVdHZ00e3Ue_EoUNe39g"></script>
 	<script src="js/tt-cart.js"></script>
 	<script src="js/main.js"></script>
-     <script>
-
-   $(document).ready(function(){
- 
-        //Chnaging the images in the modal when the user selects an image
-        $(".prod").on('click', function(data){
-            
-            var id = $(this).attr("rel");  //Obtaining the name of the image selected
-            var new_img = 'admin_page/admin/includes/images/';  //Image template
-            var default_img = 'default.png';
-            //Ajax get request to product_modal.php
-             $.get('product_modal.php', {'key' : id} ,function(data,status){
-                 //Checking for errors
-                 if(status == '404'){
-                     alert('Requested page not found. [404]');
-                 }else if(status == '500'){
-                       alert('Internal Server Error [500]');
-                 }else{
-                     //Parsing the JSON object
-                     var prod = jQuery.parseJSON(data);
-
-                     //Dynamically changing the image src's
-                     $('#prod_im11').attr('src',new_img + prod.product_image_1);
-                     //Image for the modal 'add to cart' button
-                     $('#prod_button').attr('data-image',new_img + prod.product_image_1);
-                     $('#prod_im12').attr('src',new_img + prod.product_image_2);
-                     $('#prod_im21').attr('src',new_img + prod.product_image_1);
-                     $('#prod_im22').attr('src',new_img + prod.product_image_2);
-                     $('#prod_name').html(prod.product_name);
-                     //Name of modal 'add to cart' button
-                     $('#prod_button').attr('data-name',prod.product_name);
-                     $('#product_price').html('$' + prod.product_price);
-                     //Price for the 'add to cart' button
-                     $('#prod_button').attr('data-cost',prod.product_price);
-                    $('#prod_description').html(prod.product_description);
-                    //Price for the 'add to cart' button
-                    $('#prod_button').attr('data-id',prod.product_id); 
-                   
-                 }
-            });  
-            
-     });
-
-   });
-
- </script>
+    <script src="scripts/scripts.js"></script>
    
 	
 </body>

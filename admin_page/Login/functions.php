@@ -23,7 +23,6 @@ function username_exists($username){
         
         return false;
     }
-
 }
 
 //Query failing message error
@@ -175,7 +174,6 @@ function imageCheck2($image_2, $product_id){
         //Retreive first image
          $image_2 = $row['product_image_2'];   
       }
-    
     return $image_2; 
 }
 

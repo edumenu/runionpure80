@@ -55,19 +55,14 @@
         //Obtainging the selected product's image just incase the image section in the form is empty
         //Checking which product images are empty
         if(empty($product_image_1)){
-            
            $product_image_1 = imageCheck1($product_image_1,$the_product_id);
-            
         } 
         
         if(empty($product_image_2)){
-            
            $product_image_2 = imageCheck2($product_image_2,$the_product_id);
-            
         } 
         
         if(empty($product_image_1) && empty($product_image_2)){
-            
             $product_image_1 = imageCheck1($product_image_1,$the_product_id);
             $product_image_2 = imageCheck2($product_image_2,$the_product_id);
         }
@@ -84,11 +79,8 @@
     }
         
     }else{
-        
         echo "<div class='alert alert-danger text-center'><strong>No product was selected!</strong></div>";
     }
-    
-    
 ?>
 
 <div class="container">
@@ -137,11 +129,9 @@
            </td>
            </tr>
          </table>
-
         </div>
         <!-- /Image-->
         
-
         <button id="add_product" type="submit" class="btn btn-success" name="edit_product">Submit</button>
      </form>
 </div>
@@ -150,7 +140,6 @@
    <!-- Toastr.js -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
  
-
 </body>
 
 </html>

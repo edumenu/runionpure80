@@ -23,14 +23,10 @@
         $query = "UPDATE testimonial SET test_content = '{$test_content}', test_date = now() , test_title = '{$test_title}' WHERE test_id = 1";
         $result = $connection->query($query);
         confirmQuery($result);         
-        //Redirecting user
-        //redirect("../main/dashboard.php"); 
     }
- 
 ?>
 
- <div class="wrapper">
-       
+ <div class="wrapper">    
        <!-- Side navigation -->
        <?php include "../includes/sidenav.php"?>
        <!-- /Side navigation -->
@@ -48,7 +44,6 @@
                Use this section to edit the testimonial section
               </div>
               <div class="card-body">
-
                 <!-- Form -->
                 <form action="" method="post" id="foo">
                   
@@ -66,9 +61,7 @@
 
                 </form>
                 <!-- /Form -->
-
               </div>
           </div>  
          
-     
 <?php include "footer.php"?>
