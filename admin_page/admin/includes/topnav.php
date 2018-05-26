@@ -18,7 +18,7 @@
                         if($_SESSION['user_role'] == 'admin' ){
                           echo $_SESSION['firstname']; echo $_SESSION['lastname'];   
                         }else{
-                            header("Location: ../../Login/index.php");
+                            header("Location: ../../Login/index");
                         }
                         
                         ?>

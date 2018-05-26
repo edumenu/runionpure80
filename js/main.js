@@ -67,8 +67,12 @@ $(function() {
 var swiper = new Swiper('.home-slider', {
     pagination: '.home-pagination',
     paginationClickable: true,
-    nextButton: '.home-slider-next',
-    prevButton: '.home-slider-prev'
+//    nextButton: '.home-slider-next',
+    autoplay: 2500,
+    speed: 2500,
+    autoplayDisableOnInteraction: false,
+    effect: 'fade',
+//    prevButton: '.home-slider-prev'
 });
 
 //testimonials slider
@@ -76,9 +80,24 @@ var swiper = new Swiper('.testimonials-slider', {
     pagination: '.testimonials-pagination',
     paginationClickable: true,
     slidesPerView: 1,
-    spaceBetween: 30,
+    spaceBetween: 5,
     nextButton: '.testimonials-slider-next',
     prevButton: '.testimonials-slider-prev'
+});
+
+//transformation slider
+var swiper = new Swiper('.transformation-slider', {
+    pagination: '.transformation-pagination',
+    paginationClickable: true,
+    slidesPerView: 1,
+    autoHeight: true,
+    spaceBetween: 1,
+    autoplay: 2500,
+    speed: 2500,
+    autoplayDisableOnInteraction: false,
+    effect: 'flip',
+//    nextButton: '.testimonials-slider-next',
+//    prevButton: '.testimonials-slider-prev'
 });
 
 // product list
@@ -88,7 +107,11 @@ var swiper = new Swiper('.product-list-slider', {
     paginationClickable: true,
     nextButton: '.product-list-slider-next',
     prevButton: '.product-list-slider-prev',
-    spaceBetween: 30,
+    autoHeight: true,
+    autoplay: 2500,
+    speed: 2500,
+    autoplayDisableOnInteraction: true,
+    spaceBetween: 5,
     breakpoints: {
         1024: {
             slidesPerView: 3,

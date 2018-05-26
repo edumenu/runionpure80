@@ -80,7 +80,7 @@
         confirmQuery($result); 
         
         //Redirecting the user to the view all products page
-        echo "<script>window.top.location.href ='view_all_products.php';</script>";
+        echo "<script>window.top.location.href ='view_all_products';</script>";
     }
         
     }else{

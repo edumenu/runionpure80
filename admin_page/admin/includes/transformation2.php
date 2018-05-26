@@ -32,7 +32,7 @@
         //Sending query and checking for query success
         $result = $connection->query($query);
         confirmQuery($result);
-        echo "<script>window.top.location.href ='transformation.php';</script>";
+        echo "<script>window.top.location.href ='transformation';</script>";
     }  
 ?>
 
@@ -79,7 +79,6 @@
         <tbody>
 
            <?php
-
             //Obtaining all the products from the database
             $query = "SELECT * FROM clients";
             $result = $connection->query($query);
@@ -117,8 +116,7 @@
 </div>
   
          
-<?php 
-    
+<?php   
     //Post request to delete product
     if(isset($_POST['delete'])){
             //Obtaining the product id
@@ -139,12 +137,11 @@
             $query = "DELETE FROM clients WHERE client_id = '{$the_client_id}'";
             $result = $connection->query($query);
             confirmQuery($result);
-            echo "<script>window.top.location.href ='transformation.php';</script>";
+            echo "<script>window.top.location.href ='transformation';</script>";
 
         }
   ?>             
-          
-                
+                   
        <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -182,19 +179,7 @@
    <!-- Toastr.js -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
    
- <script>
-   //Obating the image slider id to be deleted
-   $(document).ready(function(){
-
-        $(".delete_link").on('click', function(){
-
-        var id = $(this).attr("rel");  //Obtaining the post id from rel attribute
-        document.getElementById('modal_delete_link').setAttribute("value",id);
-     });
-
-   });
-
- </script>
+ <script src="scripts/scripts.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
    <!-- Toastr.js -->

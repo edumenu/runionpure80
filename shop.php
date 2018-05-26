@@ -33,10 +33,10 @@
 			</div>
 			<div class="collapse navbar-collapse navbar-right" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="index.php">Home</a></li>
+					<li><a href="index">Home</a></li>
 					<li><a href="#products">products</a></li>
 					<li><a href="#contact">contact</a></li>
-					<li><a href="admin_page/Login/index.php">Admin</a></li>
+					<li><a href="admin_page/Login/index">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -60,8 +60,8 @@
 	<div class="cart-delivery" id="cart-delivery">
 	<h4 class="section-heading">Delivery option</h4>
 		<div class="custom-radio">
-			<input id="radio1" type="radio" name="delivery" value="0.00" checked> 
-			<label for="radio1">domestic delivery ($0)</label>
+			<input id="radio1" type="radio" name="delivery" value="10.00" checked> 
+			<label for="radio1">domestic delivery ($10)</label>
 		</div>
 
 		<div class="custom-radio">
@@ -248,10 +248,9 @@
 					<div class="col-md-4 col-md-push-4 text-center">
 						<div class="social">
 							<ul>
-								<li><a href="http://facebook.com/" target="_blank"><span class="ti-facebook"></span></a></li>
+								<li><a href="https://www.facebook.com/richard.l.runion" target="_blank"><span class="ti-facebook"></span></a></li>
 								<li><a href="https://twitter.com/" target="_blank"><span class="ti-twitter-alt"></span></a></li>
 								<li><a href="http://linkedin.com/" target="_blank"><span class="ti-linkedin"></span></a></li>
-								<li><a href="https://vimeo.com/" target="_blank"><span class="ti-vimeo-alt"></span></a></li>
 								<li><a href="http://youtube.com/" target="_blank"><span class="ti-youtube"></span></a></li>
 							</ul>
 						</div>

@@ -135,7 +135,7 @@
             $query = "DELETE FROM slider WHERE slider_id = '{$the_slider_id}'";
             $result = $connection->query($query);
             confirmQuery($result);
-            echo "<script>window.top.location.href ='image_slider.php';</script>";
+            echo "<script>window.top.location.href ='image_slider';</script>";
 
         }
   ?>             

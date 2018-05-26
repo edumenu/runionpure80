@@ -33,8 +33,8 @@
 					<li><a href="#about">about us</a></li>
 					<li><a href="#testimonials">testimonials</a></li>
 					<li><a href="#contact">contact</a></li>
-					<li><a href="shop.php">Shop</a></li>
-					<li><a href="admin_page/Login/index.php">Admin</a></li>
+					<li><a href="shop">Shop</a></li>
+					<li><a href="admin_page/Login/index">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -44,21 +44,18 @@
 	<section class="home section image-slider" id="home">
 		<div class="home-slider text-center">
 			<div class="swiper-wrapper">
-			
-			
-                    <?php
+                <?php
+                //Obtaining the about content already in the database
+                $query = "SELECT * FROM slider";
+                $result = $connection->query($query);
+                confirmQuery($result);  
 
-                    //Obtaining the about content already in the database
-                    $query = "SELECT * FROM slider";
-                    $result = $connection->query($query);
-                    confirmQuery($result);  
+                while($row = mysqli_fetch_assoc($result)) {
+                  //Storing the about content into a variable 
+                  $slider_id = $row['slider_id'];
+                  $slider_image = $row['slider_image']; 
 
-                    while($row = mysqli_fetch_assoc($result)) {
-                      //Storing the about content into a variable 
-                      $slider_id = $row['slider_id'];
-                      $slider_image = $row['slider_image']; 
-
-                     ?>	
+                 ?>	
 			
 				<div class="swiper-slide" style="background: url(img/slider/<?php echo $slider_image?>);">
 					<a class="arrow bounce text-center" href="#about"> About<span class="ti-mouse"></span> <span class="ti-angle-double-down"></span> </a>
@@ -67,13 +64,12 @@
 				<?php } ?>
 			</div>
 			<div class="home-pagination"></div>
-			<div class="home-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>
-			<div class="home-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>
+<!--			<div class="home-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>-->
+<!--			<div class="home-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>-->
 		</div>
 	</section>
 	
-<?php
-    
+<?php 
     //Obtaining the about content already in the database
     $query = "SELECT * FROM about";
     $result = $connection->query($query);
@@ -83,10 +79,8 @@
       //Storing the about content into a variable 
       $about_content = $row['about_content'];
       $about_date = $row['about_date'];
-    }    
-    
+    }        
     $newDate = date("m-d-Y", strtotime($about_date));
-
 ?>	
 
 		
@@ -122,7 +116,6 @@
                        $cred_list = $row['cred_list'];    
                        echo "<li>$cred_list</li>"; 
                     }
-                    
                 }         
                 ?>
 					</ul>
@@ -131,9 +124,6 @@
 		</div>
 	</section>
 <!--End of About Us-->
-	
-	
-	
 	
 <?php
     
@@ -150,7 +140,6 @@
     }    
     //Changing the date format
     $newDate2 = date("m-d-Y", strtotime($test_date));
-
 ?>	
 		
 <!--Testimonial-->
@@ -180,13 +169,13 @@
 <!--End of Testimonial-->
 
 <!--Transformation-->
-	<section class="" id="">
+	<section class="transformation" id="transformation">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<h3 class="section-heading black-color">Transformations</h3>
 				</div>
-				<div class="testimonials-slider text-center">
+				<div class="transformation-slider text-center">
 					<div class="swiper-wrapper">
 					   <?php 
                         
@@ -204,22 +193,19 @@
                            $client_image = $row['client_image'];
                         ?>
 						<div class="swiper-slide">
-							<h3 class="wow fadeInUp" data-wow-delay=".4s" style="margin-bottom: 80px;"><?php echo $client_name?> </h3>
+							<h3 class="wow fadeInUp" data-wow-delay=".6s" style="margin-bottom: 10px;"><?php echo $client_name?> </h3>
 								<img id='responsive_img' src="admin_page/admin/includes/images/transformation/<?php echo $client_image?>" alt="">
 						</div>
 						<?php } } ?>
 					</div>
-					<div class="testimonials-pagination"></div>
-					<div class="testimonials-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>
-					<div class="testimonials-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>
+					<div class="transformation-pagination"></div>
+<!--					<div class="testimonials-slider-next right-arrow-negative"> <span class="ti-arrow-right"></span> </div>-->
+<!--					<div class="testimonials-slider-prev left-arrow-negative"> <span class="ti-arrow-left"></span> </div>-->
 				</div>
 			</div>
 		</div>
 	</section>
 <!--End of Transformation-->
-
-
-
 
 <!-- Contact -->
 
@@ -275,8 +261,6 @@
 <!-- End of Contact-->
 	
 	
-	
-	
 <!-- Footer -->
 	<div class="section section-min">
 		<footer class="footer">
@@ -285,10 +269,10 @@
 					<div class="col-md-4 col-md-push-4 text-center">
 						<div class="social">
 							<ul>
-								<li><a href="http://facebook.com/" target="_blank"><span class="ti-facebook"></span></a></li>
+								<li><a href="https://www.facebook.com/richard.l.runion" target="_blank"><span class="ti-facebook"></span></a></li>
 								<li><a href="https://twitter.com/" target="_blank"><span class="ti-twitter-alt"></span></a></li>
 								<li><a href="http://linkedin.com/" target="_blank"><span class="ti-linkedin"></span></a></li>
-								<li><a href="https://vimeo.com/" target="_blank"><span class="ti-vimeo-alt"></span></a></li>
+<!--								<li><a href="https://vimeo.com/" target="_blank"><span class="ti-vimeo-alt"></span></a></li>-->
 								<li><a href="http://youtube.com/" target="_blank"><span class="ti-youtube"></span></a></li>
 							</ul>
 						</div>

@@ -1,0 +1,9 @@
+RewriteEngine on 
+
+RewriteRule ^(index|shop|admin_page/Login/index|admin_page/admin/main/dashboard)$ $1.php  [NC,L]
+
+RewriteRule ^(admin_page/admin/includes/image_slider|admin_page/admin/includes/about|admin_page/admin/includes/testimonial)$ $1.php  [NC,L]
+
+RewriteRule ^(admin_page/admin/includes/transformation|admin_page/admin/includes/view_all_products|admin_page/admin/includes/add_product)$ $1.php  [NC,L]
+
+RewriteRule ^(admin_page/admin/includes/image_slider2)$ $1.php  [NC,L]

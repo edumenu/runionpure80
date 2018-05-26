@@ -43,7 +43,7 @@
         //Sending query and checking for query success
         $result = $connection->query($query);
         confirmQuery($result);
-        echo "<script>window.top.location.href ='view_all_products.php';</script>";
+        echo "<script>window.top.location.href ='view_all_products';</script>";
     }  
 ?>
 

@@ -4777,6 +4777,12 @@ button.close, .close {
 
 /* Custom css  */
 #responsive_img {
+    width: 50vh !important;
+    height: auto !important;
+}
+
+/* Custom css  */
+#responsive_img1 {
     width: 80% !important;
     height: auto !important;
     margin-bottom: auto;

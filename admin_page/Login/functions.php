@@ -82,18 +82,18 @@ function confirmQuery($result) {
         $_SESSION['user_role'] = $db_user_role;
 
         //Open the admin the page when username and password are correct 
-        header("Location: ../../admin/main/dashboard.php");
+        header("Location: ../../admin/main/dashboard");
 
         }else{
             //Creating the error message
             $_SESSION['error'] = $error_password;
-            header("Location: ../index.php");
+            header("Location: ../index");
         }
 
     }else{
         //Creating the error message
         $_SESSION['error'] = $error_user;
-        header("Location: ../index.php");
+        header("Location: ../index");
 
         return true;
  }
@@ -227,4 +227,5 @@ function imageCheck2($image_2, $product_id){
        confirmQuery($result);
   }
  }
+
 ?>

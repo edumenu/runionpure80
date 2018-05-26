@@ -135,7 +135,7 @@
         $query = "DELETE FROM products WHERE product_id = '{$the_product_id}'";
         $result = $connection->query($query);
         confirmQuery($result);
-        redirect("view_all_products.php");
+        redirect("view_all_products");
     }
         
     //Post request to delete product
@@ -153,7 +153,7 @@
         $query = "DELETE FROM products WHERE product_id = '{$the_product_id}'";
         $result = $connection->query($query);
         confirmQuery($result);
-        redirect("view_all_products.php");
+        redirect("view_all_products");
     }
  ?>   
      

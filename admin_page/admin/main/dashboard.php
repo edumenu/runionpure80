@@ -123,9 +123,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-        
        $(document).ready(function(){
-           
            //Get request for dashboard page
        $.get("../includes/dashboard_get.php", function(data, status){
              //Checking for errors
@@ -143,7 +141,6 @@
                      
                  });
        }); 
-        
     </script>        
             
 <!--  ******Footer****   -->
