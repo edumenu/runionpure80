@@ -1,4 +1,4 @@
-![alt text](https://cdn.pixabay.com/photo/2020/03/09/23/04/plum-4917370_960_720.jpg)
+![alt text](img/home.png)
 
 This is a nutrition/fitness website which has CMS system built behind it. The CMS system is built with PHP and will be used to change content on the website dynamically.
 
