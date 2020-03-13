@@ -1,6 +1,7 @@
-![](https://github.com/edumenu/runionpure80/blob/master/img/home.png)
 
 This is a nutrition/fitness website which has CMS system built behind it. The CMS system is built with PHP and will be used to change content on the website dynamically.
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 admin_page/ This folder contains all the files and folders for the admin page
 
