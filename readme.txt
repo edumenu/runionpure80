@@ -1,3 +1,5 @@
+![alt text](http://ehdemdume.com/img/lee/home.png)
+
 This is a nutrition/fitness website which has CMS system built behind it. The CMS system is built with PHP and will be used to change content on the website dynamically.
 
 admin_page/ This folder contains all the files and folders for the admin page
